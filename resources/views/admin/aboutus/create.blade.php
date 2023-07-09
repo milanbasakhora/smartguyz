@@ -21,12 +21,6 @@
                                 <textarea name="description" id="description" class="form-control summernote"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="image">Image</label>
-                                <input type="file" id="image" class="form-control-file" name="image">
-                            </div>
-                        </div>
                         <button type="submit" class="btn btn-success">Save Record</button>
                     </div>
                 </form>

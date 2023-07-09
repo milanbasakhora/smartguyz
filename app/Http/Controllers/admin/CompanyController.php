@@ -41,6 +41,11 @@ class CompanyController extends Controller
         $company->address = $request->address;
         $company->contact = $request->contact;
         $company->email = $request->email;
+        $company->facebook = $request->facebook;
+        $company->instagram = $request->instagram;
+        $company->twitter = $request->twitter;
+        $company->youtube = $request->youtube;
+        $company->tiktok = $request->tiktok;
         uploadImage($request,$company,'logo');
         $company->save();
         return redirect()->route('company.index');
@@ -73,6 +78,11 @@ class CompanyController extends Controller
         $company->address = $request->address;
         $company->contact = $request->contact;
         $company->email = $request->email;
+        $company->facebook = $request->facebook;
+        $company->instagram = $request->instagram;
+        $company->twitter = $request->twitter;
+        $company->youtube = $request->youtube;
+        $company->tiktok = $request->tiktok;
         uploadImage($request,$company,'logo');
         $company->update();
         return redirect()->route('company.index');

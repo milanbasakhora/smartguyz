@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('address')->nullable();
+            $table->string('designation')->nullable();
+            $table->longText('message')->nullable();
             $table->string('image')->nullable();
-            $table->foreignId('member_category_id')->constrained();
+            $table->enum('status',['active','inactive'])->default('inactive');
             $table->timestamps();
         });
     }

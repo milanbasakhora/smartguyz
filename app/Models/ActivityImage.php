@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ActivityImage extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['image'];
 
     public function activity()
     {
+
         return $this->belongsTo(Activity::class);
     }
 }

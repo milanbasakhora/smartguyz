@@ -18,7 +18,6 @@
                             data-feather="settings"></i><span>Master Setup</span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="{{ route('company.index') }}">Company Profile</a></li>
-                        <li><a class="nav-link" href="{{ route('membercategory.index') }}">Member Category</a></li>
                         <li><a class="nav-link" href="{{ route('welcome_message.index') }}">Welcome Message</a></li>
                     </ul>
                 </li>
@@ -26,9 +25,10 @@
                 <li class="menu-header">Pages</li>
                 <li><a class="nav-link" href="{{ route('aboutus.index') }}"><i class="fa-regular fa-address-card"></i><span>About Us</span> </a></li>
                 <li><a class="nav-link" href="{{ route('activity.index') }}"><i class="fa-regular fa-calendar-days"></i><span>Our Activity</span> </a></li>
-                <li><a class="nav-link" href="{{ route('carousel.index') }}"><i class="fa-solid fa-image"></i><span>Carousel</span> </a></li>
+                <li><a class="nav-link" href="{{ route('carousel.index') }}"><i class="fa-regular fa-image"></i><span>Carousel</span> </a></li>
                 <li><a class="nav-link" href="{{ route('member.index') }}"><i class="fa-solid fa-users"></i><span>Members</span> </a></li>
-                <li><a class="nav-link" href="{{ route('notice.index') }}"><i class="fa-solid fa-clipboard"></i><span>Notices</span> </a></li>
+                <li><a class="nav-link" href="{{ route('notice.index') }}"><i class="fa-regular fa-clipboard"></i><span>Notices</span> </a></li>
+                <li><a class="nav-link" href="{{ route('contact.index') }}"><i class="fa-regular fa-address-book"></i><span>Contact</span> </a></li>
             </ul>
         </aside>
     </div>

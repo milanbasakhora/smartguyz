@@ -14,8 +14,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::orderBy('created_at','desc')->get();
-        return view('admin.activity.index',compact('activities'));
+        $activities = Activity::orderBy('created_at', 'desc')->get();
+        return view('admin.activity.index', compact('activities'));
     }
 
     /**
@@ -31,22 +31,24 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $activity = new Activity();
         $activity->title = $request->title;
         $activity->description = $request->description;
         $activity->save();
-        foreach($request->images as $image){
-            $activityImage = new ActivityImage();
-            $activityImage->activity_id = $activity->id;
-            $file = $image;
-            $newName = time() . '' . $file->getClientOriginalExtension();
-            $file->move('images',$newName);
-            $activityImage->image = "images/$newName";
-            $activityImage->save();
-        }
-        toast('Record saved successfully','success');
-        return redirect()->route('activity.index');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $newName = time() . $index . '.' . $image->getClientOriginalExtension();
+                $image->move('images', $newName);
 
+                $activityImage = new ActivityImage();
+                $activityImage->image = "images/$newName";
+                $activity->activity_images()->save($activityImage);
+            }
+        }
+
+        toast('Record saved successfully', 'success');
+        return redirect()->route('activity.index');
     }
 
     /**
@@ -54,7 +56,8 @@ class ActivityController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $activities = Activity::find($id)->with('activity_images')->get();
+        return view('admin.activity.show', compact('activities'));
     }
 
     /**
@@ -63,7 +66,7 @@ class ActivityController extends Controller
     public function edit(string $id)
     {
         $activity = Activity::find($id);
-        return view('admin.activity.edit',compact('activity'));
+        return view('admin.activity.edit', compact('activity'));
     }
 
     /**
@@ -75,18 +78,18 @@ class ActivityController extends Controller
         $activity->title = $request->title;
         $activity->description = $request->description;
         $activity->update();
-        $deleteActivityImage = ActivityImage::where('activity_id',$activity->id);
+        $deleteActivityImage = ActivityImage::where('activity_id', $activity->id);
         $deleteActivityImage->delete();
-        foreach($request->images as $image){
-            $activityImage = new ActivityImage();
-            $activityImage->activity_id = $activity->id;
-            $file = $image;
-            $newName = time() . '' . $file->getClientOriginalExtension();
-            $file->move('images',$newName);
-            $activityImage->image = "images/$newName";
-            $activityImage->save();
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $newName = time() . $index . '.' . $image->getClientOriginalExtension();
+                $image->move('images', $newName);
+                $activityImage = new ActivityImage();
+                $activityImage->image = "images/$newName";
+                $activity->activity_images()->save($activityImage);
+            }
         }
-        toast('Record saved successfully','success');
+        toast('Record saved successfully', 'success');
         return redirect()->route('activity.index');
     }
 

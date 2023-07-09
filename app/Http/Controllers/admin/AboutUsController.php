@@ -36,7 +36,6 @@ class AboutUsController extends Controller
     {
         $aboutus = new AboutUs();
         $aboutus->title = $request->title;
-        uploadImage($request,$aboutus,'image');
         $aboutus->description = $request->description;
         $aboutus->save();
         return redirect()->route('aboutus.index');
@@ -66,7 +65,6 @@ class AboutUsController extends Controller
     {
         $aboutus = AboutUs::find($id);
         $aboutus->title = $request->title;
-        uploadImage($request,$aboutus,'image');
         $aboutus->description = $request->description;
         $aboutus->update();
         return redirect()->route('aboutus.index');

@@ -14,8 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $membercategories = MemberCategory::orderBy('created_at','desc')->get();
-        return view('admin.member.index',compact('membercategories'));
+        $members = Member::all();
+        return view('admin.member.index',compact('members'));
     }
 
     /**
@@ -23,7 +23,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.member.create');
     }
 
     /**
@@ -33,8 +33,10 @@ class MemberController extends Controller
     {
         $member = new Member();
         $member->name = $request->name;
-        $member->member_category_id = $request->member_category_id;
         $member->address = $request->address;
+        $member->designation = $request->designation;
+        $member->status = $request->status;
+        $member->message = $request->message;
         $member->phone = $request->phone;
         $member->email = $request->email;
         uploadImage($request,$member,'image');
@@ -55,7 +57,8 @@ class MemberController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $member = Member::find($id);
+        return view('admin.member.edit',compact('member'));
     }
 
     /**
@@ -66,6 +69,8 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member->name = $request->name;
         $member->address = $request->address;
+        $member->designation = $request->designation;
+        $member->status = $request->status;
         $member->phone = $request->phone;
         $member->email = $request->email;
         uploadImage($request,$member,'image');

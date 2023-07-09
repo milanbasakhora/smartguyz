@@ -23,18 +23,9 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            <input type="file" id="image" class="form-control-file" value="" name="image">
-                        </div>
+                        <button type="submit" class="btn btn-success my-3">Update Record</button>
                     </div>
-                    <div>
-                        <h6>Previous Image</h6>
-                        <img src="{{asset($aboutus->image)}}" width="120" alt="">
-                    </div>
-
                 </div>
-                <button type="submit" class="btn btn-success m-3">Update Record</button>
                 </form>
             </div>
         </div>

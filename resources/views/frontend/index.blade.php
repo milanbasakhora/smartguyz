@@ -13,7 +13,7 @@
 
     <!-- Navbar -->
     @include('frontend.layouts.navbar')
-
+    
     <!-- Jumbotron -->
     @include('frontend.layouts.jumbotron')
 
