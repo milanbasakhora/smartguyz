@@ -29,6 +29,7 @@
                 <li><a class="nav-link" href="{{ route('member.index') }}"><i class="fa-solid fa-users"></i><span>Members</span> </a></li>
                 <li><a class="nav-link" href="{{ route('notice.index') }}"><i class="fa-regular fa-clipboard"></i><span>Notices</span> </a></li>
                 <li><a class="nav-link" href="{{ route('contact.index') }}"><i class="fa-regular fa-address-book"></i><span>Contact</span> </a></li>
+                <li><a class="nav-link" href="{{ route('terms_and_conditions.index') }}"><i class="fa-regular fa-file"></i></i><span>Terms & Conditions</span> </a></li>
             </ul>
         </aside>
     </div>

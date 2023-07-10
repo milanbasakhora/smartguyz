@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\MemberCategoryController;
 use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\admin\NoticeController;
+use App\Http\Controllers\Admin\TermsController;
 use App\Http\Controllers\Admin\WelcomeMessageController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -63,6 +64,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/member', MemberController::class)->names(['member']);
     Route::resource('/admin/notice', NoticeController::class)->names(['notice']);
     Route::resource('/admin/contact', ContactController::class)->names(['contact']);
+    Route::resource('/admin/terms_and_conditions', TermsController::class)->names(['terms_and_conditions']);
 });
 
 require __DIR__ . '/adminauth.php';
