@@ -30,6 +30,11 @@ Route::get('/team', [FrontendController::class,'team']);
 Route::get('/blog', [FrontendController::class,'blog']);
 Route::get('/blog-details', [FrontendController::class,'blogdetails']);
 Route::get('/contact', [FrontendController::class,'contact']);
+Route::get('/editorial-team', [FrontendController::class,'editorialteam']);
+Route::get('/gallery', [FrontendController::class,'gallery']);
+Route::get('/notices', [FrontendController::class,'notices']);
+Route::get('/terms-n-conditions', [FrontendController::class,'terms']);
+Route::get('/privacy', [FrontendController::class,'privacy']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
