@@ -36,4 +36,24 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.contact');
     }
+    public function editorialteam()
+    {
+        return view('frontend.pages.editorial-team');
+    }
+    public function gallery()
+    {
+        return view('frontend.pages.gallery');
+    }
+    public function notices()
+    {
+        return view('frontend.pages.notices');
+    }
+    public function terms()
+    {
+        return view('frontend.pages.terms');
+    }
+    public function privacy()
+    {
+        return view('frontend.pages.privacy');
+    }
 }

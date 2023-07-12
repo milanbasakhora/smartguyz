@@ -46,8 +46,34 @@
                     <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
-                        <a class="nav-link" href="/about">About Us</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Company
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                                <a class="nav-link" href="/about">About Us</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('editorial-team') ? 'active' : '' }}">
+                                <a class="nav-link" href="/editorial-team">Editorial Team</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('gallery') ? 'active' : '' }}">
+                                <a class="nav-link" href="/gallery">Gallery</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('notices') ? 'active' : '' }}">
+                                <a class="nav-link" href="/notices">Notices</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="nav-item {{ request()->is('terms-n-conditions') ? 'active' : '' }}">
+                                <a class="nav-link" href="/terms-n-conditions">Terms & Conditions</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('privacy') ? 'active' : '' }}">
+                                <a class="nav-link" href="/privacy">Privacy</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item {{ request()->is('team') ? 'active' : '' }}">
                         <a class="nav-link" href="/team">Team</a>

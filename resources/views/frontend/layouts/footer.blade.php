@@ -4,25 +4,25 @@
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Company</h5>
                 <ul class="footer-menu">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Editorial Team</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/editorial-team">Editorial Team</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>More</h5>
                 <ul class="footer-menu">
-                    <li><a href="#">Terms & Condition</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Collaborate With Us</a></li>
+                    <li><a href="/terms-n-conditions">Terms & Condition</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/contact">Collaborate with Us</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Our partner</h5>
                 <ul class="footer-menu">
-                    <li><a href="#">Code IT</a></li>
-                    <li><a href="#">Milan Basakhora</a></li>
-                    <li><a href="#">Simana Online Services</a></li>
+                    <li><a href="https://codeit.com.np">CODE IT</a></li>
+                    <li><a href="https://milanbasakhora.com.np">Milan Basakhora</a></li>
+                    <li><a href="https://simanaonlineservices.com.np">Simana Online Services</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">

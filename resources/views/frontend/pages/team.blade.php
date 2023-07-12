@@ -12,6 +12,7 @@
   <!-- Navbar -->
   @include('frontend.layouts.navbar')
 
+  {{-- page banner --}}
   <div class="page-banner overlay-dark bg-image" style="background-image: url(../frontend/assets/img/8.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
