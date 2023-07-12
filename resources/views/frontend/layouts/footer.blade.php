@@ -6,7 +6,7 @@
                 <ul class="footer-menu">
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/editorial-team">Editorial Team</a></li>
-                    <li><a href="/galery">Gallery</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
