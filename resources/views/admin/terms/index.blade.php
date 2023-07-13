@@ -26,7 +26,7 @@
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 @else
-                    <h6>No Welcome Message</h6>
+                    <h6>No Content</h6>
                 @endif
             </div>
         </div>
