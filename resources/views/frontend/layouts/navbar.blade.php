@@ -23,10 +23,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#"><span><img src="../frontend/assets/img/logo.png" class="logo"
+            <a class="navbar-brand" href="/"><span><img src="../frontend/assets/img/logo.png" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>-Guyz</a>
 
-            <form action="#">
+            <form id="search-form" action="#">
                 <div class="input-group input-navbar">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
@@ -46,7 +46,7 @@
                     <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ request()->is('about','editorial-team','gallery','notices','terms-n-conditions','privacy') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Company
