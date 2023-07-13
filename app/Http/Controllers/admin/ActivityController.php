@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivityImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ActivityController extends Controller
 {
@@ -34,6 +35,7 @@ class ActivityController extends Controller
         // dd($request->all());
         $activity = new Activity();
         $activity->title = $request->title;
+        $activity->slug = Str::slug($request->title);
         $activity->description = $request->description;
         $activity->save();
         if ($request->hasFile('images')) {
@@ -76,11 +78,12 @@ class ActivityController extends Controller
     {
         $activity = Activity::find($id);
         $activity->title = $request->title;
+        $activity->slug = Str::slug($request->title);
         $activity->description = $request->description;
         $activity->update();
         $deleteActivityImage = ActivityImage::where('activity_id', $activity->id);
-        $deleteActivityImage->delete();
         if ($request->hasFile('images')) {
+            $deleteActivityImage->delete();
             foreach ($request->file('images') as $index => $image) {
                 $newName = time() . $index . '.' . $image->getClientOriginalExtension();
                 $image->move('images', $newName);

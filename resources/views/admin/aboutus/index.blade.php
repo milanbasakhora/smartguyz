@@ -16,6 +16,10 @@
                     <div class="col-md-12 text-center">
                         <h6>{{ $aboutus->title }}</h6>
                         <p>{!! $aboutus->description !!}</p>
+                        <div class="container">
+                            <img src="{{ asset($aboutus->image) }}" width="360" class="img-fluid m-4"
+                            alt="">
+                        </div>
                     </div>
                 </div>
                     <form action="{{ route('aboutus.destroy', $aboutus->id) }}" method="post">

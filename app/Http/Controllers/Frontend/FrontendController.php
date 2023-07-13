@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
-class FrontendController extends Controller
+class FrontendController extends BaseController
 {
     public function home()
     {
@@ -24,13 +26,16 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        return view('frontend.pages.blog');
+        $newactivities = Activity::all();
+        return view('frontend.pages.blog',compact('newactivities'));
     }
 
-    public function blogdetails()
+    public function blogdetails($slug)
     {
-        return view('frontend.pages.blog-details');
+        $blog = Activity::where('slug', $slug)->first();
+        return view('frontend.pages.blog-details', compact('blog'));
     }
+
 
     public function contact()
     {

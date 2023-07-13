@@ -28,25 +28,32 @@
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Contact</h5>
                 <ul class="footer-menu">
-                    <li><a class="mai-location-outline" href="#">: Dharan, Nepal</a></li>
-                    <li><a class="mai-call-outline" href="#">: +977 98XXXXXXXX</a></li>
-                    <li><a class="mai-mail-outline" href="#">: smart-guyz@gmail.com</a></li>
+                    <li><a class="mai-location-outline" href="#">: {{ $company->address }}</a></li>
+                    <li><a class="mai-call-outline" href="tel:{{ $company->contact }}">: {{ $company->contact }}</a></li>
+                    <li><a class="mai-mail-outline" href="mailto:{{ $company->email }}">: {{ $company->email }}</a></li>
                 </ul>
 
                 <h5 class="mt-3">Social Media</h5>
                 <div class="footer-sosmed mt-3">
-                    <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
+                    @if ($company->facebook)
+                    <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
+                    @endif
+                    @if ($company->twitter)
+                    <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
+                    @endif
+                    @if ($company->youtube)
+                    <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
+                    @endif
+                    @if ($company->instagram)
+                    <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
+                    @endif
                 </div>
             </div>
         </div>
 
         <hr>
 
-        <p id="copyright">Copyright &copy; 2023 <a href="#" target="_blank">Smart-Guyz</a>.
+        <p id="copyright">Copyright &copy; {{ now()->year }} <a href="#" target="_blank">{{ $company->name ?? 'Smart-Guyz' }}</a>.
             All right
             reserved</p>
     </div>

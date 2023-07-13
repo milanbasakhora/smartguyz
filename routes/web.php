@@ -33,7 +33,7 @@ Route::get('/', [FrontendController::class,'home'] );
 Route::get('/about', [FrontendController::class,'about'] );
 Route::get('/team', [FrontendController::class,'team']);
 Route::get('/blog', [FrontendController::class,'blog']);
-Route::get('/blog-details', [FrontendController::class,'blogdetails']);
+Route::get('/blog/{slug}', [FrontendController::class,'blogdetails']);
 Route::get('/contact', [FrontendController::class,'contact']);
 Route::get('/editorial-team', [FrontendController::class,'editorialteam']);
 Route::get('/gallery', [FrontendController::class,'gallery']);

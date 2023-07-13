@@ -4,17 +4,25 @@
             <div class="row">
                 <div class="col-sm-8 text-sm">
                     <div class="site-info">
-                        <a href="#"><span class="mai-call text-primary"></span> +977 98XXXXXXXX</a>
+                        <a href="tel:{{ $company->contact }}"><span class="mai-call text-primary"></span> {{ $company->contact }}</a>
                         <span class="divider">|</span>
-                        <a href="#"><span class="mai-mail text-primary"></span> smart-guyz@gmail.com</a>
+                        <a href="mailto:{{ $company->email }}"><span class="mai-mail text-primary"></span>{{ $company->email }}</a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right text-sm">
                     <div class="social-mini-button">
-                        <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#"><span class="mai-logo-twitter"></span></a>
-                        <a href="#"><span class="mai-logo-youtube"></span></a>
-                        <a href="#"><span class="mai-logo-instagram"></span></a>
+                        @if ($company->facebook)
+                        <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
+                        @endif
+                        @if ($company->twitter)
+                        <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
+                        @endif
+                        @if ($company->youtube)
+                        <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
+                        @endif
+                        @if ($company->instagram)
+                        <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
+                        @endif
                     </div>
                 </div>
             </div> <!-- .row -->
@@ -23,7 +31,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/"><span><img src="../frontend/assets/img/logo.png" class="logo"
+            <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo) }}" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>-Guyz</a>
 
             <form id="search-form" action="#">
