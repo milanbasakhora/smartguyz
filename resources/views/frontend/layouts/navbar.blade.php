@@ -1,4 +1,12 @@
 <header>
+    <style>
+       /* .topbar a{
+            color: rgb(0, 0, 0) !important;
+        }
+        #black a{
+            color: black !important;
+        } */
+    </style>
     <div class="topbar">
         <div class="container">
             <div class="row">
@@ -34,7 +42,7 @@
             <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo) }}" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>-Guyz</a>
 
-            <form id="search-form" action="#">
+            {{-- <form id="search-form" action="#">
                 <div class="input-group input-navbar">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
@@ -42,7 +50,7 @@
                     <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
                         aria-describedby="icon-addon1">
                 </div>
-            </form>
+            </form> --}}
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                 aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,27 +58,37 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav" id="black">
                     <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown {{ request()->is('about','editorial-team','gallery','notices','terms-n-conditions','privacy') ? 'active' : '' }}">
+                    <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('team') ? 'active' : '' }}">
+                        <a class="nav-link" href="/team">Team</a>
+                    </li>
+                    <li class="nav-item {{ request()->is('blog*') ? 'active' : '' }}">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item {{ request()->is('gallery') ? 'active' : '' }}">
+                        <a class="nav-link" href="/gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item {{ request()->is('notices') ? 'active' : '' }}">
+                        <a class="nav-link" href="/notices">Notices</a>
+                    </li>
+                    <li class="nav-item dropdown {{ request()->is('editorial-team','terms-n-conditions','privacy') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Company
+                            More
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
-                                <a class="nav-link" href="/about">About Us</a>
-                            </li>
                             <li class="nav-item {{ request()->is('editorial-team') ? 'active' : '' }}">
                                 <a class="nav-link" href="/editorial-team">Editorial Team</a>
-                            </li>
-                            <li class="nav-item {{ request()->is('gallery') ? 'active' : '' }}">
-                                <a class="nav-link" href="/gallery">Gallery</a>
-                            </li>
-                            <li class="nav-item {{ request()->is('notices') ? 'active' : '' }}">
-                                <a class="nav-link" href="/notices">Notices</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -83,51 +101,44 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{ request()->is('team') ? 'active' : '' }}">
-                        <a class="nav-link" href="/team">Team</a>
-                    </li>
-                    <li class="nav-item {{ request()->is('blog*') ? 'active' : '' }}">
-                        <a class="nav-link" href="/blog">Blog</a>
-                    </li>
-                    <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                    {{-- X-dropdown --}}
-                    @if (Route::has('login'))
-                        @auth
-                            {{-- <h1>User logged in!!</h1> --}}
-                            <li class="">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle btn btn-primary ml-lg-3" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false"> {{ Auth::user()->name }}</a>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                     {{-- X-dropdown --}}
+                     @if (Route::has('login'))
+                     @auth
+                         {{-- <h1>User logged in!!</h1> --}}
+                         <li class="">
+                             <div class="dropdown">
+                                 <a class="dropdown-toggle btn btn-primary ml-lg-3" href="#" role="button"
+                                     data-bs-toggle="dropdown" aria-expanded="false"> {{ Auth::user()->name }}</a>
 
 
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <x-dropdown-link :href="route('profile.edit')">
-                                                {{ __('Profile') }}
-                                            </x-dropdown-link>
-                                        </li>
-                                        <li>
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
+                                 <ul class="dropdown-menu">
+                                     <li>
+                                         <x-dropdown-link :href="route('profile.edit')">
+                                             {{ __('Profile') }}
+                                         </x-dropdown-link>
+                                     </li>
+                                     <li>
+                                         <form method="POST" action="{{ route('logout') }}">
+                                             @csrf
 
-                                                <x-dropdown-link :href="route('logout')"
-                                                    onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                                    {{ __('Log Out') }}
-                                                </x-dropdown-link>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login / Register</a>
-                            </li>
-                        @endauth
-                    @endif
+                                             <x-dropdown-link :href="route('logout')"
+                                                 onclick="event.preventDefault();
+                                                 this.closest('form').submit();">
+                                                 {{ __('Log Out') }}
+                                             </x-dropdown-link>
+                                         </form>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </li>
+                     @else
+                         <li class="nav-item">
+                             <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Sign In</a>
+                         </li>
+                     @endauth
+                 @endif
                 </ul>
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->

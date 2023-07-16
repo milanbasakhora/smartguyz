@@ -67,7 +67,7 @@ class JumbotronController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $jumbotron = new Jumbotron();
+        $jumbotron = Jumbotron::find($id);
         $jumbotron->text1 = $request->text1;
         $jumbotron->text2 = $request->text2;
         $jumbotron->text3 = $request->text3;
