@@ -61,4 +61,8 @@ class FrontendController extends BaseController
     {
         return view('frontend.pages.privacy');
     }
+    public function members()
+    {
+        return view('frontend.pages.members');
+    }
 }

@@ -41,6 +41,7 @@ Route::get('/gallery', [FrontendController::class,'gallery']);
 Route::get('/notices', [FrontendController::class,'notices']);
 Route::get('/terms-n-conditions', [FrontendController::class,'terms']);
 Route::get('/privacy', [FrontendController::class,'privacy']);
+Route::get('/members', [FrontendController::class,'members']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

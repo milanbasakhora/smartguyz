@@ -3,6 +3,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 py-3 wow fadeInUp">
+                    <h1>Welcome to Smart Guyz <br> Team</h1>
                     <div class="text-grey mb-4 description">
                         {!! Str::limit($aboutus->description, 470, '') !!}
                     </div>

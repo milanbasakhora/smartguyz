@@ -81,7 +81,7 @@
                     <li class="nav-item {{ request()->is('notices') ? 'active' : '' }}">
                         <a class="nav-link" href="/notices">Notices</a>
                     </li>
-                    <li class="nav-item dropdown {{ request()->is('editorial-team','terms-n-conditions','privacy') ? 'active' : '' }}">
+                    <li class="nav-item dropdown {{ request()->is('editorial-team', 'members','terms-n-conditions','privacy') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             More
@@ -89,6 +89,9 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item {{ request()->is('editorial-team') ? 'active' : '' }}">
                                 <a class="nav-link" href="/editorial-team">Editorial Team</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('members') ? 'active' : '' }}">
+                                <a class="nav-link" href="/members">Our Members</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
