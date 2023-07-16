@@ -7,13 +7,14 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
 
     <!-- Back to top button -->
     <div class="back-to-top"></div>
 
     <!-- Navbar -->
     @include('frontend.layouts.navbar')
-    
+
     <!-- Jumbotron -->
     @include('frontend.layouts.jumbotron')
 

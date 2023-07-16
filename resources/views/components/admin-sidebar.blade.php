@@ -18,7 +18,7 @@
                             data-feather="settings"></i><span>Master Setup</span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="{{ route('company.index') }}">Company Profile</a></li>
-                        <li><a class="nav-link" href="{{ route('welcome_message.index') }}">Welcome Message</a></li>
+                        <li><a class="nav-link" href="{{ route('boardmember.index') }}">Board Members</a></li>
                         <li><a class="nav-link" href="{{ route('jumbotron.index') }}">Jumbotron</a></li>
                     </ul>
                 </li>

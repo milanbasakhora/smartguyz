@@ -3,10 +3,10 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h5>Create Member</h5>
-                <a href="{{ route('member.index') }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+                <a href="{{ route('boardmember.index') }}" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
             </div>
             <div class="card-body">
-                <form action="{{ route('member.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('boardmember.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -34,6 +34,13 @@
                             <div class="form-group">
                                 <label for="address">Address </label>
                                 <input id="address" class="form-control" type="text" name="address"
+                                    placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="designation">Designation </label>
+                                <input id="designation" class="form-control" type="text" name="designation"
                                     placeholder="" required>
                             </div>
                         </div>

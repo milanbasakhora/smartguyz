@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\admin\ActivityController;
+use App\Http\Controllers\admin\BoardMemberController;
 use App\Http\Controllers\admin\CarouselController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
@@ -74,6 +75,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/terms_and_conditions', TermsController::class)->names(['terms_and_conditions']);
     Route::resource('/admin/privacy', PrivacyController::class)->names(['privacy']);
     Route::resource('/admin/jumbotron', JumbotronController::class)->names(['jumbotron']);
+    Route::resource('/admin/boardmember', BoardMemberController::class)->names(['boardmember']);
 });
 
 require __DIR__ . '/adminauth.php';

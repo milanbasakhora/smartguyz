@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use App\Models\MemberCategory;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class MemberController extends Controller
 {
@@ -34,14 +36,13 @@ class MemberController extends Controller
         $member = new Member();
         $member->name = $request->name;
         $member->address = $request->address;
-        $member->designation = $request->designation;
-        $member->status = $request->status;
         $member->message = $request->message;
         $member->phone = $request->phone;
         $member->email = $request->email;
         uploadImage($request,$member,'image');
         $member->save();
-        return redirect()->route('member.index');
+        toast('Request sent successfully','success');
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +70,6 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member->name = $request->name;
         $member->address = $request->address;
-        $member->designation = $request->designation;
         $member->status = $request->status;
         $member->phone = $request->phone;
         $member->email = $request->email;

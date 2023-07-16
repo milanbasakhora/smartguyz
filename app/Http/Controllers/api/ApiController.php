@@ -14,9 +14,12 @@ use App\Http\Resources\WelcomeMessageResource;
 use App\Models\AboutUs;
 use App\Models\Activity;
 use App\Models\Carousel;
+use App\Models\Member;
 use App\Models\Notice;
 use App\Models\WelcomeMessage;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ApiController extends Controller
 {
@@ -55,4 +58,5 @@ class ApiController extends Controller
         $activities = Activity::all();
         return ActivityResource::collection($activities);
     }
+
 }
