@@ -21,12 +21,24 @@
             <li class="breadcrumb-item active" aria-current="page">Terms and Conditions</li>
           </ol>
         </nav>
-        <h1 class="font-weight-normal">Terms and Conditions</h1>
+        <h1 class="font-weight-normal">{{ $terms->title }}</h1>
       </div>
     </div>
   </div>
 
  {{-- page section --}}
+ <!-- Terms & Conditions -->
+ <div class="page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 wow fadeInUp">
+          <div class="text-center text-lg">
+            <p>{!! $terms->content !!}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
  {{-- page section end --}}
 
   {{-- Footer --}}

@@ -11,11 +11,11 @@
   --primary: #00ff88;
   /* --primary: #ff0000; */
   --accent: #FF3D85;
-  --secondary: #ff0000;
+  --secondary: #00ff88;
   /* --secondary: #4E5AFE; */
   --warning: #EED818;
   --info: #05B4E1;
-  --danger: #FF4943;
+  --danger: #00ff88;
   --success: #96C93D;
   --dark: #343531;
   --light: #F5F9F6;
@@ -1799,9 +1799,9 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #E1EBE8;
 }
 
-#google-maps {
+#map {
   width: 100%;
-  height: 350px;
+  height: 100%;
 }
 
 .custom-img-1 {

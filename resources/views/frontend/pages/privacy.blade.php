@@ -21,12 +21,23 @@
             <li class="breadcrumb-item active" aria-current="page">Privacy</li>
           </ol>
         </nav>
-        <h1 class="font-weight-normal">Privacy</h1>
+        <h1 class="font-weight-normal">{{ $privacy->title }}</h1>
       </div>
     </div>
   </div>
 
  {{-- page section --}}
+ <div class="page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 wow fadeInUp">
+          <div class="text-center text-lg">
+            <p>{!! $privacy->content !!}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
  {{-- page section end --}}
 
   {{-- Footer --}}

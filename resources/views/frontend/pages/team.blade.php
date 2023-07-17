@@ -60,7 +60,7 @@
     </div> <!-- .page-section -->
 
     <!-- Become a Member -->
-    @include('frontend.layouts.memberrequest')
+    {{-- @include('frontend.layouts.memberrequest') --}}
 
     {{-- Footer --}}
     @include('frontend.layouts.footer')

@@ -41,17 +41,6 @@
         <div class="container">
             <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo) }}" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>-Guyz</a>
-
-            {{-- <form id="search-form" action="#">
-                <div class="input-group input-navbar">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
-                        aria-describedby="icon-addon1">
-                </div>
-            </form> --}}
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                 aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

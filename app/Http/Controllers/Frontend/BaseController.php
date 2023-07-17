@@ -9,6 +9,8 @@ use App\Models\BoardMember;
 use App\Models\Company;
 use App\Models\Jumbotron;
 use App\Models\Member;
+use App\Models\Privacy;
+use App\Models\Term;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -22,6 +24,8 @@ class BaseController extends Controller
         $activities = Activity::orderBy('created_at', 'desc')->paginate(4);
         $boardmembers = BoardMember::all();
         $members = Member::all();
+        $terms = Term::first();
+        $privacy = Privacy::first();
         View::share([
             'company' => $company,
             'jumbotron' => $jumbotron,
@@ -29,6 +33,8 @@ class BaseController extends Controller
             'activities' => $activities,
             'boardmembers' => $boardmembers,
             'members' => $members,
+            'terms' => $terms,
+            'privacy' => $privacy,
         ]);
     }
 }

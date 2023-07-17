@@ -53,7 +53,7 @@
 
         <hr>
 
-        <p id="copyright">Copyright &copy; {{ now()->year }} <a href="#" target="_blank">{{ $company->name ?? 'Smart-Guyz' }}</a>.
+        <p id="copyright">Copyright &copy; {{ now()->year }} <a href="/">{{ $company->name ?? 'Smart-Guyz' }}</a>.
             All right
             reserved</p>
     </div>
