@@ -55,20 +55,13 @@
                         <div class="post-content">
                             <p>{!! $blog->description !!}</p>
                         </div>
-                        <div class="post-thumb">
-                            @foreach ($blog->activity_images as $index => $activity_image)
-                                @if ($index == 1)
+                        @foreach ($blog->activity_images as $index => $activity_image)
+                            @if ($index>0 && $index < 3)
+                                <div class="post-thumb">
                                     <img src="{{ asset($activity_image->image) }}" alt="">
-                                @endif
-                            @endforeach
-                        </div>
-                        <div class="post-thumb">
-                            @foreach ($blog->activity_images as $index => $activity_image)
-                                @if ($index == 2)
-                                    <img src="{{ asset($activity_image->image) }}" alt="">
-                                @endif
-                            @endforeach
-                        </div>
+                                </div>
+                            @endif
+                        @endforeach
                     </article> <!-- .blog-details -->
 
                     <!-- Comment Section -->

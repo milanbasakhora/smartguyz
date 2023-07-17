@@ -15,19 +15,23 @@
     @include('frontend.layouts.navbar')
 
     <!-- Banner Image -->
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../frontend/assets/img/4.jpg);">
-        <div class="banner-section">
-            <div class="container text-center wow fadeInUp">
-                <nav aria-label="Breadcrumb">
-                    <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                    </ol>
-                </nav>
-                <h1 class="font-weight-normal">Our Activities</h1>
-            </div> <!-- .container -->
-        </div> <!-- .banner-section -->
-    </div> <!-- .page-banner -->
+    @foreach ($banners as $index => $banner)
+        @if ($index == 0)
+            <div class="page-banner overlay-dark bg-image" style="background-image: url('{{ $banner->blog }}');">
+                <div class="banner-section">
+                    <div class="container text-center wow fadeInUp">
+                        <nav aria-label="Breadcrumb">
+                            <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                            </ol>
+                        </nav>
+                        <h1 class="font-weight-normal">Our Activities</h1>
+                    </div> <!-- .container -->
+                </div> <!-- .banner-section -->
+            </div> <!-- .page-banner -->
+        @endif
+    @endforeach
 
     <!-- page-section -->
     <div class="page-section">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\Activity;
+use App\Models\Banner;
 use App\Models\BoardMember;
 use App\Models\Company;
 use App\Models\Jumbotron;
@@ -26,6 +27,7 @@ class BaseController extends Controller
         $members = Member::all();
         $terms = Term::first();
         $privacy = Privacy::first();
+        $banners = Banner::all();
         View::share([
             'company' => $company,
             'jumbotron' => $jumbotron,
@@ -35,6 +37,7 @@ class BaseController extends Controller
             'members' => $members,
             'terms' => $terms,
             'privacy' => $privacy,
+            'banners' => $banners,
         ]);
     }
 }

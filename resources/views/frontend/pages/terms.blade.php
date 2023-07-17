@@ -12,7 +12,10 @@
   <!-- Navbar -->
   @include('frontend.layouts.navbar')
 
-  <div class="page-banner overlay-dark bg-image" style="background-image: url(../frontend/assets/img/8.jpg);">
+  {{-- Page Banner --}}
+  @foreach ($banners as $index=>$banner)
+@if ($index==0)
+<div class="page-banner overlay-dark bg-image" style="background-image: url('{{ $banner->terms }}');">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -25,6 +28,8 @@
       </div>
     </div>
   </div>
+@endif
+  @endforeach
 
  {{-- page section --}}
  <!-- Terms & Conditions -->

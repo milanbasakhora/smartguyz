@@ -20,6 +20,7 @@
                         <li><a class="nav-link" href="{{ route('company.index') }}">Company Profile</a></li>
                         <li><a class="nav-link" href="{{ route('boardmember.index') }}">Board Members</a></li>
                         <li><a class="nav-link" href="{{ route('jumbotron.index') }}">Jumbotron</a></li>
+                        <li><a class="nav-link" href="{{ route('banner.index') }}">Page Banner</a></li>
                     </ul>
                 </li>
                 {{-- <li><a class="nav-link" href="{{ route('menu.index') }}"><i class="fa-solid fa-bars"></i><span>Menu</span> </a></li> --}}

@@ -16,19 +16,23 @@
     @include('frontend.layouts.navbar')
 
     {{-- page banner --}}
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../frontend/assets/img/8.jpg);">
-        <div class="banner-section">
-            <div class="container text-center wow fadeInUp">
-                <nav aria-label="Breadcrumb">
-                    <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Members</li>
-                    </ol>
-                </nav>
-                <h1 class="font-weight-normal">Our Members</h1>
+    @foreach ($banners as $index => $banner)
+        @if ($index == 0)
+            <div class="page-banner overlay-dark bg-image" style="background-image: url('{{ $banner->members }}');">
+                <div class="banner-section">
+                    <div class="container text-center wow fadeInUp">
+                        <nav aria-label="Breadcrumb">
+                            <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Members</li>
+                            </ol>
+                        </nav>
+                        <h1 class="font-weight-normal">Our Members</h1>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        @endif
+    @endforeach
 
     <!-- page section -->
     <div class="page-section bg-light">
@@ -38,17 +42,17 @@
                     <div class="row">
                         @foreach ($members as $member)
                             @if ($member->status == 'active')
-                            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-                                <div class="card-doctor">
-                                    <div class="header">
-                                        <img src="{{ $member->image }}" alt="">
-                                    </div>
-                                    <div class="body">
-                                        <p class="text-xl mb-0">{{ $member->name }}</p>
-                                        <span class="text-sm text-grey">Member</span>
+                                <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+                                    <div class="card-doctor">
+                                        <div class="header">
+                                            <img src="{{ $member->image }}" alt="">
+                                        </div>
+                                        <div class="body">
+                                            <p class="text-xl mb-0">{{ $member->name }}</p>
+                                            <span class="text-sm text-grey">Member</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
                         @endforeach
                     </div>

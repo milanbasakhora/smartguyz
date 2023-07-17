@@ -10,7 +10,7 @@
                         <div class="post-category">
                         </div>
                         @foreach ($activity->activity_images as $imageIndex=>$activity_image)
-                        @if ($imageIndex==1)
+                        @if ($imageIndex==0)
                         <a href="/blog/{{ $activity->slug }}" class="post-thumb">
                             <img src="{{ asset($activity_image->image) }}" alt="">
                         </a>
