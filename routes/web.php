@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BoardMemberController;
 use App\Http\Controllers\admin\CarouselController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
+use App\Http\Controllers\admin\EditorialController;
 use App\Http\Controllers\admin\JumbotronController;
 use App\Http\Controllers\admin\MemberCategoryController;
 use App\Http\Controllers\admin\MemberController;
@@ -78,6 +79,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/privacy', PrivacyController::class)->names(['privacy']);
     Route::resource('/admin/jumbotron', JumbotronController::class)->names(['jumbotron']);
     Route::resource('/admin/boardmember', BoardMemberController::class)->names(['boardmember']);
+    Route::resource('/admin/editorial', EditorialController::class)->names(['editorial']);
     Route::resource('/admin/banner', BannerController::class)->names(['banner']);
 });
 

@@ -8,6 +8,7 @@ use App\Models\Activity;
 use App\Models\Banner;
 use App\Models\BoardMember;
 use App\Models\Company;
+use App\Models\Editorial;
 use App\Models\Jumbotron;
 use App\Models\Member;
 use App\Models\Privacy;
@@ -24,6 +25,7 @@ class BaseController extends Controller
         $aboutus = AboutUs::first();
         $activities = Activity::orderBy('created_at', 'desc')->paginate(4);
         $boardmembers = BoardMember::all();
+        $editorials = Editorial::all();
         $members = Member::all();
         $terms = Term::first();
         $privacy = Privacy::first();
@@ -34,6 +36,7 @@ class BaseController extends Controller
             'aboutus' => $aboutus,
             'activities' => $activities,
             'boardmembers' => $boardmembers,
+            'editorials' => $editorials,
             'members' => $members,
             'terms' => $terms,
             'privacy' => $privacy,
