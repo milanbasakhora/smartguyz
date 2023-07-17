@@ -10,6 +10,7 @@ use App\Models\BoardMember;
 use App\Models\Company;
 use App\Models\Editorial;
 use App\Models\Jumbotron;
+use App\Models\Map;
 use App\Models\Member;
 use App\Models\Privacy;
 use App\Models\Term;
@@ -30,6 +31,7 @@ class BaseController extends Controller
         $terms = Term::first();
         $privacy = Privacy::first();
         $banners = Banner::all();
+        $map = Map::first();
         View::share([
             'company' => $company,
             'jumbotron' => $jumbotron,
@@ -41,6 +43,7 @@ class BaseController extends Controller
             'terms' => $terms,
             'privacy' => $privacy,
             'banners' => $banners,
+            'map' => $map,
         ]);
     }
 }

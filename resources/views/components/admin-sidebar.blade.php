@@ -36,9 +36,10 @@
                 <li><a class="nav-link" href="{{ route('contact.index') }}"><i class="fa-solid fa-address-book"></i><span>Contact</span> </a></li>
 
                 {{-- Other Pages --}}
-                <li class="menu-header">Other Pages</li>
+                <li class="menu-header">Others</li>
                 <li><a class="nav-link" href="{{ route('terms_and_conditions.index') }}"><i class="fa-solid fa-file"></i><span>Terms & Conditions</span> </a></li>
                 <li><a class="nav-link" href="{{ route('privacy.index') }}"><i class="fa-solid fa-lock"></i><span>Privacy</span> </a></li>
+                <li><a class="nav-link" href="{{ route('map.index') }}"><i class="fa-brands fa-canadian-maple-leaf"></i><span>Maps</span> </a></li>
             </ul>
         </aside>
     </div>

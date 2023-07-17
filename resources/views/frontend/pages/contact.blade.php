@@ -85,13 +85,21 @@
 </body>
 <script>
     // Script for leaflet map
-    var map = L.map('map');
-    map.setView([26.8208346, 87.2544547], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    var marker = L.marker([26.8208346, 87.2544547]).addTo(map);
+
+    var mapElement = document.getElementById('map');
+    if (mapElement) {
+        var map = L.map('map').setView([{{ $map->latitude }}, {{ $map->longitude }}], {{ $map->zoomlevel }});
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var marker = L.marker([{{ $map->latitude }}, {{ $map->longitude }}]).addTo(map);
+    } else {
+        console.error('Element with ID "map" not found.');
+    }
+
     // marker.bindPopup("<b>Hello!</b><br>Smart Guyz.").openPopup();
     // var popup = L.popup();
 

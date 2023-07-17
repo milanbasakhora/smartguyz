@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\EditorialController;
 use App\Http\Controllers\admin\JumbotronController;
+use App\Http\Controllers\admin\MapController;
 use App\Http\Controllers\admin\MemberCategoryController;
 use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\Admin\MenuController;
@@ -81,6 +82,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/boardmember', BoardMemberController::class)->names(['boardmember']);
     Route::resource('/admin/editorial', EditorialController::class)->names(['editorial']);
     Route::resource('/admin/banner', BannerController::class)->names(['banner']);
+    Route::resource('/admin/map', MapController::class)->names(['map']);
 });
 
 require __DIR__ . '/adminauth.php';
