@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Get Routes Begin
 Route::get('/', [FrontendController::class,'home'] );
 Route::get('/about', [FrontendController::class,'about'] );
 Route::get('/team', [FrontendController::class,'team']);
@@ -45,6 +45,12 @@ Route::get('/notices', [FrontendController::class,'notices']);
 Route::get('/terms-n-conditions', [FrontendController::class,'terms']);
 Route::get('/privacy', [FrontendController::class,'privacy']);
 Route::get('/members', [FrontendController::class,'members']);
+// Get Routes End
+
+// Post Routes Begin
+Route::post('/postmember', [FrontendController::class,'postMember']);
+Route::post('/postmessage', [FrontendController::class,'postMessage']);
+// Post Routes End
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

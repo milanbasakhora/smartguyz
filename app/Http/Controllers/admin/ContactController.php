@@ -13,7 +13,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('admin.contact.index',compact('contacts'));
     }
 
     /**
@@ -29,7 +30,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
+        toast('Message sent successfully','success');
+        return redirect()->back();
     }
 
     /**
@@ -61,6 +69,9 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->delete();
+        toast('Message deleted successfully','success');
+        return redirect()->route('contact.index');
     }
 }

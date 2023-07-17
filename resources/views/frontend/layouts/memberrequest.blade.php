@@ -1,7 +1,7 @@
 <div id="pagesection" class="page-section bg-light">
     <div class="container">
         <h1 class="text-center wow fadeInUp">Get A Membership</h1>
-        <form action="{{ route('member.store') }}" method="post" class="main-form">
+        <form action="/postmember" method="post" class="main-form">
             @csrf
             <div class="row mt-5 ">
                 <div class="col-12 col-sm-6 py-2 wow fadeInLeft">

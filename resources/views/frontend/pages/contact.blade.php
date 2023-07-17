@@ -13,7 +13,8 @@
 </head>
 
 <body>
-
+    @include('sweetalert::alert')
+    
     <!-- Back to top button -->
     <div class="back-to-top"></div>
 
@@ -43,24 +44,24 @@
     <div class="page-section">
         <div class="container">
             <h1 class="text-center wow fadeInUp">Get in Touch</h1>
-
-            <form class="contact-form mt-5">
+            <form action="/postmessage" method="post" class="contact-form mt-5">
+                @csrf
                 <div class="row mb-3">
                     <div class="col-sm-6 py-2 wow fadeInLeft">
-                        <label for="fullName">Name</label>
-                        <input type="text" id="fullName" class="form-control" placeholder="Full name..">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name..">
                     </div>
                     <div class="col-sm-6 py-2 wow fadeInRight">
-                        <label for="emailAddress">Email</label>
-                        <input type="text" id="emailAddress" class="form-control" placeholder="Email address..">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Email address..">
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" class="form-control" placeholder="Enter subject..">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter subject..">
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="message">Message</label>
-                        <textarea id="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
+                        <textarea id="message" name="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary wow zoomIn">Send Message</button>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\Company;
+use App\Models\Contact;
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 class FrontendController extends BaseController
@@ -65,4 +67,31 @@ class FrontendController extends BaseController
     {
         return view('frontend.pages.members');
     }
+
+    public function postMember(Request $request)
+    {
+        $member = new Member();
+        $member->name = $request->name;
+        $member->address = $request->address;
+        $member->message = $request->message;
+        $member->phone = $request->phone;
+        $member->email = $request->email;
+        uploadImage($request,$member,'image');
+        $member->save();
+        toast('Request sent successfully','success');
+        return redirect()->back();
+    }
+
+    public function postMessage(Request $request)
+    {
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
+        toast('Message sent successfully','success');
+        return redirect()->back();
+    }
+
 }

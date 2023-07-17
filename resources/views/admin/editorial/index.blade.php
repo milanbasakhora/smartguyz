@@ -33,8 +33,16 @@
                             <td class="border border-1">{{ $editorial->address }}</td>
                             <td class="border border-1">{{ $editorial->designation }}</td>
                             <td class="border border-1">
-                                <a href="{{ route('editorial.edit', $editorial->id) }}" class="btn btn-primary btn-sm text-white"> <i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="{{ route('editorial.destroy', $editorial->id) }}" class="btn btn-danger btn-sm text-white" data-confirm-delete="true"> <i class="fa-solid fa-trash"></i></a>
+                                <a href="{{ route('editorial.edit', $editorial->id) }}" class="btn btn-primary btn-sm text-white">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form action="{{ route('editorial.destroy', $editorial->id) }}" method="POST" class="delete-form" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm text-white" onclick="return confirm('Are you sure you want to delete this editorial?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
