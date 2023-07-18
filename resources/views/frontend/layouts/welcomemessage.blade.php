@@ -5,7 +5,7 @@
                 <div class="col-md-6 py-3 wow fadeInUp">
                     <h1>Welcome to Smart Guyz <br> Team</h1>
                     <div class="text-grey mb-4 description">
-                        {!! Str::limit($aboutus->description, 470, '') !!}
+                        {!! Str::limit($aboutus->description, 479, '') !!}
                     </div>
                     <a href="/about" class="btn btn-primary">Learn More</a>
                 </div>

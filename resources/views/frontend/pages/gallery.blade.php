@@ -33,9 +33,45 @@
         @endif
     @endforeach
 
-    {{-- page section --}}
-    {{-- page section end --}}
-
+    {{-- Page Section Start --}}
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        @foreach ($activities as $activity)
+                        <div class="col-sm-3 py-3">
+                            <div class="card-gallery">
+                              <div class="header">
+                                <a href="/blog/{{ $activity->slug }}" class="post-thumb">
+                                  @foreach ($activity->activity_images as $index => $activity_image)
+                                    @if ($index == 0)
+                                      <div class="image-container">
+                                        <img src="{{ asset($activity_image->image) }}" alt="">
+                                        <div class="title-overlay">{{ $activity->title }}</div>
+                                      </div>
+                                    @endif
+                                  @endforeach
+                                </a>
+                              </div>
+                              {{-- <div class="body">
+                                <p class="post-title text-center">
+                                  <a href="/blog/{{ $activity->slug }}">{{ $activity->title }}</a>
+                                </p>
+                              </div> --}}
+                            </div>
+                          </div>
+                        @endforeach
+                    </div> <!-- .row -->
+                    <!-- Nevigation -->
+                    <div class="d-flex justify-content-center">
+                        {{ $activities->links('pagination::bootstrap-4') }}
+                    </div>
+                </div>
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div>
+    {{-- Page Section End --}}
 
     {{-- Footer --}}
     @include('frontend.layouts.footer')

@@ -9,6 +9,11 @@
                     <div class="card-doctor">
                         <div class="header">
                             <img src="{{ $member->image }}" alt="">
+                            <div class="meta">
+                                <a href="#"><span class="mai-logo-facebook-f"></span></a>
+                                <a href="#"><span
+                                        class="mai-logo-instagram"></span></a>
+                            </div>
                         </div>
                         <div class="body">
                             <p class="text-xl mb-0">{{ $member->name }}</p>

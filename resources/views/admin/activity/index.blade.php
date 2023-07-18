@@ -31,9 +31,19 @@
                             <td class="border border-1">{{ $activity->title }}</td>
                             <td class="border border-1">{!! Str::limit($activity->description, 200, '...') !!}</td>
                             <td class="border border-1">
-                                <a href="{{ route('activity.edit', $activity->id) }}" class="btn btn-primary btn-sm text-white"> <i class="fa-solid fa-pen-to-square"></i></a>
-                                <a class="btn btn-info btn-sm text-white" href="{{ route('activity.show', $activity->id) }}"><i class="fa-solid fa-eye"></i> </a>
-                                <a href="{{ route('activity.destroy', $activity->id) }}" class="btn btn-danger btn-sm text-white" data-confirm-delete="true"> <i class="fa-solid fa-trash"></i></a>
+                                <a href="{{ route('activity.edit', $activity->id) }}" class="btn btn-primary btn-sm text-white">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="{{ route('activity.show', $activity->id) }}" class="btn btn-info btn-sm text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                <form action="{{ route('activity.destroy', $activity->id) }}" method="POST" class="delete-form" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm text-white" onclick="return confirm('Are you sure you want to delete this activity?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

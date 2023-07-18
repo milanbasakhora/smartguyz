@@ -62,7 +62,6 @@
                                                 <span>{{ $company->name }}</span>
                                             </div>
                                             <span class="mai-time"></span> {{ $activity->created_at->format('F j, Y') }}
-
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +101,6 @@
                             @endforeach
                         </div>
                     </div>
-
                 </div>
             </div> <!-- .row -->
         </div> <!-- .container -->

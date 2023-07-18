@@ -101,6 +101,9 @@ class ActivityController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $activity = Activity::find($id);
+        $activity->delete();
+        toast('Record deleted successfully', 'success');
+        return redirect()->route('activity.index');
     }
 }

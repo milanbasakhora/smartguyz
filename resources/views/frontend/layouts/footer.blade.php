@@ -28,9 +28,9 @@
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Contact</h5>
                 <ul class="footer-menu">
-                    <li><a class="mai-location-outline" href="#">: {{ $company->address }}</a></li>
-                    <li><a class="mai-call-outline" href="tel:{{ $company->contact }}">: {{ $company->contact }}</a></li>
-                    <li><a class="mai-mail-outline" href="mailto:{{ $company->email }}">: {{ $company->email }}</a></li>
+                    <li><a href="#"><i class="mai-location-outline"></i>: {{ $company->address }}</a></li>
+                    <li><a href="tel:{{ $company->contact }}"><i class="mai-call-outline"></i>: {{ $company->contact }}</a></li>
+                    <li><a href="mailto:{{ $company->email }}"><i class="mai-mail-outline"></i>: {{ $company->email }}</a></li>
                 </ul>
 
                 <h5 class="mt-3">Social Media</h5>
