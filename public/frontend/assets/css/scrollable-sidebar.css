@@ -1,0 +1,17 @@
+/* Apply custom styles to the sidebar content */
+.sidebar-content {
+    height: 90vh;
+    overflow-y: scroll;
+    /* Use 'scroll' to show scrollbar only when content overflows */
+}
+
+/* Hide the scrollbar but allow content to be scrolled */
+.sidebar-content::-webkit-scrollbar {
+    width: 0.1em;
+    /* Set a very narrow scrollbar width */
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* Hide the scrollbar thumb */
+}

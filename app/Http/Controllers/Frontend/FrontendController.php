@@ -36,7 +36,8 @@ class FrontendController extends BaseController
     {
         $blog = Activity::where('slug', $slug)->first();
         $newactivities = Activity::orderBy('created_at', 'desc')->get();
-        return view('frontend.pages.blog-details', compact('blog','newactivities'));
+        $oldactivities = Activity::all();
+        return view('frontend.pages.blog-details', compact('blog','newactivities','oldactivities'));
     }
 
     public function contact()
