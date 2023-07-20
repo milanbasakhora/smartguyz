@@ -12,6 +12,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
+                            <label for="title">Update Title</label>
+                            <input type="text" id="title" class="form-control-file" value="" name="title">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <label for="image">Update Image</label>
                             <input type="file" id="image" class="form-control-file" value="" name="image">
                         </div>

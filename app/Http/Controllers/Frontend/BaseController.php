@@ -9,9 +9,11 @@ use App\Models\Banner;
 use App\Models\BoardMember;
 use App\Models\Company;
 use App\Models\Editorial;
+use App\Models\Gallery;
 use App\Models\Jumbotron;
 use App\Models\Map;
 use App\Models\Member;
+use App\Models\Notice;
 use App\Models\Privacy;
 use App\Models\Term;
 use Illuminate\Http\Request;
@@ -32,6 +34,8 @@ class BaseController extends Controller
         $privacy = Privacy::first();
         $banners = Banner::all();
         $map = Map::first();
+        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(8);
+        $notices = Notice::orderBy('created_at', 'desc')->paginate(8);
         View::share([
             'company' => $company,
             'jumbotron' => $jumbotron,
@@ -44,6 +48,8 @@ class BaseController extends Controller
             'privacy' => $privacy,
             'banners' => $banners,
             'map' => $map,
+            'galleries' => $galleries,
+            'notices' => $notices,
         ]);
     }
 }

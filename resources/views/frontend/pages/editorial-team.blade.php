@@ -48,7 +48,7 @@
                                             <a href="https://wa.me/{{ $editorial->contact }}"><span class="mai-logo-whatsapp"></span></a>
                                         </div>
                                     </div>
-                                    <div class="body">
+                                    <div class="body text-center">
                                         <p class="text-xl mb-0">{{ $editorial->name }}</p>
                                         <span class="text-sm text-grey">{{ $editorial->designation }}</span>
                                     </div>

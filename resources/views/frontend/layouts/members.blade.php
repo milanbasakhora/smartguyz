@@ -15,7 +15,7 @@
                                         class="mai-logo-instagram"></span></a>
                             </div>
                         </div>
-                        <div class="body">
+                        <div class="body text-center">
                             <p class="text-xl mb-0">{{ $member->name }}</p>
                             <span class="text-sm text-grey">Member</span>
                         </div>

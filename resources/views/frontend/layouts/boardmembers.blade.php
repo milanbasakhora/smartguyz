@@ -13,7 +13,7 @@
                                 <a href="https://wa.me/{{ $boardmember->contact }}"><span class="mai-logo-whatsapp"></span></a>
                             </div>
                         </div>
-                        <div class="body">
+                        <div class="body text-center">
                             <p class="text-xl mb-0">{{ $boardmember->name }}</p>
                             <span class="text-sm text-grey">{{ $boardmember->designation }}</span>
                         </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CarouselController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\EditorialController;
+use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\JumbotronController;
 use App\Http\Controllers\admin\MapController;
 use App\Http\Controllers\admin\MemberCategoryController;
@@ -78,7 +79,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/menu', MenuController::class)->names(['menus']);
     Route::resource('/admin/aboutus', AboutUsController::class)->names(['aboutus']);
     Route::resource('/admin/activity', ActivityController::class)->names(['activity']);
-    Route::resource('/admin/carousel', CarouselController::class)->names(['carousel']);
+    Route::resource('/admin/gallery', GalleryController::class)->names(['gallery']);
     Route::resource('/admin/member', MemberController::class)->names(['member']);
     Route::resource('/admin/notice', NoticeController::class)->names(['notice']);
     Route::resource('/admin/contact', ContactController::class)->names(['contact']);

@@ -33,7 +33,7 @@
                     <li><a href="mailto:{{ $company->email }}"><i class="mai-mail-outline"></i>: {{ $company->email }}</a></li>
                 </ul>
 
-                <h5 class="mt-3">Social Media</h5>
+                <h5 class="mt-5">Social Media</h5>
                 <div class="footer-sosmed mt-3">
                     @if ($company->facebook)
                     <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
@@ -50,9 +50,7 @@
                 </div>
             </div>
         </div>
-
         <hr>
-
         <p id="copyright">Copyright &copy; {{ now()->year }} <a href="/">{{ $company->name ?? 'Smart-Guyz' }}</a>.
             All right
             reserved</p>

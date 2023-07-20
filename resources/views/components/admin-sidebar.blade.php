@@ -29,7 +29,7 @@
                 <li class="menu-header">Pages</li>
                 <li><a class="nav-link" href="{{ route('aboutus.index') }}"><i class="fa-solid fa-address-card"></i><span>About Us</span> </a></li>
                 <li><a class="nav-link" href="{{ route('activity.index') }}"><i class="fa-solid fa-calendar-days"></i><span>Our Activity</span> </a></li>
-                <li><a class="nav-link" href="{{ route('carousel.index') }}"><i class="fa-solid fa-image"></i><span>Carousel</span> </a></li>
+                <li><a class="nav-link" href="{{ route('gallery.index') }}"><i class="fa-solid fa-image"></i><span>Gallery</span> </a></li>
                 <li><a class="nav-link" href="{{ route('member.index') }}"><i class="fa-solid fa-users"></i><span>Members</span> </a></li>
                 <li><a class="nav-link" href="{{ route('editorial.index') }}"><i class="fa-solid fa-screwdriver-wrench"></i><span>Editorial Team</span> </a></li>
                 <li><a class="nav-link" href="{{ route('notice.index') }}"><i class="fa-solid fa-clipboard"></i><span>Notices</span> </a></li>

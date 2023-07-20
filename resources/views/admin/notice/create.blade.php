@@ -11,7 +11,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="image">Select Image</label>
+                                <label for="title">Title <span class="text-danger">*</span></label>
+                                <input type="text" id="title" class="form-control-file" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Select Image <span class="text-danger">*</span></label>
                                 <input type="file" id="image" class="form-control-file" name="image">
                             </div>
                         </div>

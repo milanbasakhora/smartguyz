@@ -28,16 +28,16 @@ class FrontendController extends BaseController
 
     public function blog()
     {
-        $newactivities = Activity::all();
-        return view('frontend.pages.blog',compact('newactivities'));
+        $oldactivities = Activity::all();
+        return view('frontend.pages.blog',compact('oldactivities'));
     }
 
     public function blogdetails($slug)
     {
         $blog = Activity::where('slug', $slug)->first();
-        return view('frontend.pages.blog-details', compact('blog'));
+        $newactivities = Activity::orderBy('created_at', 'desc')->get();
+        return view('frontend.pages.blog-details', compact('blog','newactivities'));
     }
-
 
     public function contact()
     {

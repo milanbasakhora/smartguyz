@@ -95,10 +95,10 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="sidebar">
-                        <!-- Newest Activities -->
+                        <!-- Latest Activities -->
                         <div class="sidebar-block">
                             <h3 class="sidebar-title">Latest Activities</h3>
-                            @foreach ($activities as $activity)
+                            @foreach ($newactivities as $activity)
                                 <div class="blog-item">
                                     <a class="post-thumb" href="/blog/{{ $activity->slug }}">
                                         @foreach ($activity->activity_images as $index => $activity_image)

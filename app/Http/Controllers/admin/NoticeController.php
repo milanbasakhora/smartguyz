@@ -31,6 +31,7 @@ class NoticeController extends Controller
     public function store(Request $request)
     {
         $notice= new Notice();
+        $notice->title = $request->title;
         uploadImage($request,$notice,'image');
         $notice->save();
         toast('Record saved successfully','success');
@@ -60,6 +61,7 @@ class NoticeController extends Controller
     public function update(Request $request, string $id)
     {
         $notice = Notice::find($id);
+        $notice->title = $notice->title;
         uploadImage($request,$notice,'image');
         $notice->update();
         toast('Record updated successfully','success');

@@ -18,7 +18,7 @@ class BannerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the banner for creating a new resource.
      */
     public function create()
     {
@@ -35,16 +35,69 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $banner = new Banner();
-        uploadImage($request,$banner,'about');
-        uploadImage($request,$banner,'team');
-        uploadImage($request,$banner,'blog');
-        uploadImage($request,$banner,'contact');
-        uploadImage($request,$banner,'gallery');
-        uploadImage($request,$banner,'notice');
-        uploadImage($request,$banner,'editorial');
-        uploadImage($request,$banner,'members');
-        uploadImage($request,$banner,'terms');
-        uploadImage($request,$banner,'privacy');
+        if ($request->hasFile('about')) {
+            $about = $request->about;
+            $newName = 'about' . time() . "." . $about->getClientOriginalExtension();
+            $about->move('images', $newName);
+            $banner->about = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('team')) {
+            $team = $request->team;
+            $newName = 'team' . time() . "." . $team->getClientOriginalExtension();
+            $team->move('images', $newName);
+            $banner->team = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('blog')) {
+            $blog = $request->blog;
+            $newName = 'blog' . time() . "." . $blog->getClientOriginalExtension();
+            $blog->move('images', $newName);
+            $banner->blog = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('contact')) {
+            $contact = $request->contact;
+            $newName = 'contact' . time() . "." . $contact->getClientOriginalExtension();
+            $contact->move('images', $newName);
+            $banner->contact = 'images/' . $newName;
+        }
+        if ($request->hasFile('gallery')) {
+            $gallery = $request->gallery;
+            $newName = 'gallery' . time() . "." . $gallery->getClientOriginalExtension();
+            $gallery->move('images', $newName);
+            $banner->gallery = 'images/' . $newName;
+        }
+        if ($request->hasFile('notice')) {
+            $notice = $request->notice;
+            $newName = 'notice' . time() . "." . $notice->getClientOriginalExtension();
+            $notice->move('images', $newName);
+            $banner->notice = 'images/' . $newName;
+        }
+        if ($request->hasFile('editorial')) {
+            $editorial = $request->editorial;
+            $newName = 'editorial' . time() . "." . $editorial->getClientOriginalExtension();
+            $editorial->move('images', $newName);
+            $banner->editorial = 'images/' . $newName;
+        }
+        if ($request->hasFile('members')) {
+            $members = $request->members;
+            $newName = 'members' . time() . "." . $members->getClientOriginalExtension();
+            $members->move('images', $newName);
+            $banner->members = 'images/' . $newName;
+        }
+        if ($request->hasFile('terms')) {
+            $terms = $request->terms;
+            $newName = 'terms' . time() . "." . $terms->getClientOriginalExtension();
+            $terms->move('images', $newName);
+            $banner->terms = 'images/' . $newName;
+        }
+        if ($request->hasFile('privacy')) {
+            $privacy = $request->privacy;
+            $newName = 'privacy' . time() . "." . $privacy->getClientOriginalExtension();
+            $privacy->move('images', $newName);
+            $banner->privacy = 'images/' . $newName;
+        }
         $banner->save();
         toast('Record saved successfully','success');
         return redirect()->route('banner.index');
@@ -59,7 +112,7 @@ class BannerController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the banner for editing the specified resource.
      */
     public function edit(string $id)
     {
@@ -73,16 +126,69 @@ class BannerController extends Controller
     public function update(Request $request, string $id)
     {
         $banner = Banner::find($id);
-        uploadImage($request,$banner,'about');
-        uploadImage($request,$banner,'team');
-        uploadImage($request,$banner,'blog');
-        uploadImage($request,$banner,'contact');
-        uploadImage($request,$banner,'gallery');
-        uploadImage($request,$banner,'notice');
-        uploadImage($request,$banner,'editorial');
-        uploadImage($request,$banner,'members');
-        uploadImage($request,$banner,'terms');
-        uploadImage($request,$banner,'privacy');
+        if ($request->hasFile('about')) {
+            $about = $request->about;
+            $newName = 'about' . time() . "." . $about->getClientOriginalExtension();
+            $about->move('images', $newName);
+            $banner->about = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('team')) {
+            $team = $request->team;
+            $newName = 'team' . time() . "." . $team->getClientOriginalExtension();
+            $team->move('images', $newName);
+            $banner->team = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('blog')) {
+            $blog = $request->blog;
+            $newName = 'blog' . time() . "." . $blog->getClientOriginalExtension();
+            $blog->move('images', $newName);
+            $banner->blog = 'images/' . $newName;
+        }
+
+        if ($request->hasFile('contact')) {
+            $contact = $request->contact;
+            $newName = 'contact' . time() . "." . $contact->getClientOriginalExtension();
+            $contact->move('images', $newName);
+            $banner->contact = 'images/' . $newName;
+        }
+        if ($request->hasFile('gallery')) {
+            $gallery = $request->gallery;
+            $newName = 'gallery' . time() . "." . $gallery->getClientOriginalExtension();
+            $gallery->move('images', $newName);
+            $banner->gallery = 'images/' . $newName;
+        }
+        if ($request->hasFile('notice')) {
+            $notice = $request->notice;
+            $newName = 'notice' . time() . "." . $notice->getClientOriginalExtension();
+            $notice->move('images', $newName);
+            $banner->notice = 'images/' . $newName;
+        }
+        if ($request->hasFile('editorial')) {
+            $editorial = $request->editorial;
+            $newName = 'editorial' . time() . "." . $editorial->getClientOriginalExtension();
+            $editorial->move('images', $newName);
+            $banner->editorial = 'images/' . $newName;
+        }
+        if ($request->hasFile('members')) {
+            $members = $request->members;
+            $newName = 'members' . time() . "." . $members->getClientOriginalExtension();
+            $members->move('images', $newName);
+            $banner->members = 'images/' . $newName;
+        }
+        if ($request->hasFile('terms')) {
+            $terms = $request->terms;
+            $newName = 'terms' . time() . "." . $terms->getClientOriginalExtension();
+            $terms->move('images', $newName);
+            $banner->terms = 'images/' . $newName;
+        }
+        if ($request->hasFile('privacy')) {
+            $privacy = $request->privacy;
+            $newName = 'privacy' . time() . "." . $privacy->getClientOriginalExtension();
+            $privacy->move('images', $newName);
+            $banner->privacy = 'images/' . $newName;
+        }
         $banner->update();
         toast('Record updated successfully','success');
         return redirect()->route('banner.index');

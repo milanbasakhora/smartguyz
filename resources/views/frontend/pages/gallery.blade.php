@@ -39,16 +39,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        @foreach ($activities as $activity)
+                        @foreach ($galleries as $gallery)
                         <div class="col-sm-3 py-3">
                             <div class="card-gallery">
                               <div class="header">
-                                <a href="/blog/{{ $activity->slug }}" class="post-thumb">
-                                  @foreach ($activity->activity_images as $index => $activity_image)
+                                <a href="{{ $gallery->link }}" target="page" class="post-thumb">
+                                  @foreach ($galleries as $index => $image)
                                     @if ($index == 0)
                                       <div class="image-container">
-                                        <img src="{{ asset($activity_image->image) }}" alt="">
-                                        <div class="title-overlay">{{ $activity->title }}</div>
+                                        <img src="{{ asset($gallery->image) }}" alt="">
+                                        <div class="title-overlay">{{ $gallery->title }}</div>
                                       </div>
                                     @endif
                                   @endforeach
