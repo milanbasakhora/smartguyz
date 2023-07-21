@@ -14,7 +14,7 @@
 
 <body>
     @include('sweetalert::alert')
-    
+
     <!-- Back to top button -->
     <div class="back-to-top"></div>
 
@@ -49,19 +49,19 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 py-2 wow fadeInLeft">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name..">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name.." required>
                     </div>
                     <div class="col-sm-6 py-2 wow fadeInRight">
                         <label for="email">Email</label>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="Email address..">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Email address.." required>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter subject..">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter subject.." required>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
+                        <textarea id="message" name="message" class="form-control" rows="8" placeholder="Enter Message.." required></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary wow zoomIn">Send Message</button>

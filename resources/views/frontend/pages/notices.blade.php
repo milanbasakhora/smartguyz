@@ -58,7 +58,7 @@
                     </div> <!-- .row -->
                     <!-- Nevigation -->
                     <div class="d-flex justify-content-center">
-                        {{ $activities->links('pagination::bootstrap-4') }}
+                        {{ $notices->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div> <!-- .row -->

@@ -15,8 +15,11 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
+        // Store the previous URL in the session
+        session()->put('url.intended', url()->previous());
+
         return view('auth.login');
     }
 
@@ -26,10 +29,13 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Get the previously stored URL without the fragment identifier
+        $intendedUrl = session('url.intended', '/');
+
+        // Redirect back to the previous URL without the fragment identifier or fallback to the homepage
+        return redirect($intendedUrl);
     }
 
     /**
@@ -38,11 +44,12 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        // Redirect back to the previous URL without the fragment identifier or fallback to the homepage
+        return redirect()->back();
     }
+
+    // ...
 }

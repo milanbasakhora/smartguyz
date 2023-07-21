@@ -75,7 +75,7 @@
                             aria-expanded="false">
                             More
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="width: 150px;">
                             <li class="nav-item {{ request()->is('editorial-team') ? 'active' : '' }}">
                                 <a class="nav-link" href="/editorial-team">Editorial Team</a>
                             </li>
@@ -98,36 +98,37 @@
                      {{-- X-dropdown --}}
                      @if (Route::has('login'))
                      @auth
-                         {{-- <h1>User logged in!!</h1> --}}
-                         <li class="">
-                             <div class="dropdown">
-                                 <a class="dropdown-toggle btn btn-primary ml-lg-3" href="#" role="button"
-                                     data-bs-toggle="dropdown" aria-expanded="false"> {{ Auth::user()->name }}</a>
-
-
-                                 <ul class="dropdown-menu">
-                                     <li>
-                                         <x-dropdown-link :href="route('profile.edit')">
-                                             {{ __('Profile') }}
-                                         </x-dropdown-link>
-                                     </li>
-                                     <li>
-                                         <form method="POST" action="{{ route('logout') }}">
-                                             @csrf
-
-                                             <x-dropdown-link :href="route('logout')"
-                                                 onclick="event.preventDefault();
-                                                 this.closest('form').submit();">
-                                                 {{ __('Log Out') }}
-                                             </x-dropdown-link>
-                                         </form>
-                                     </li>
-                                 </ul>
-                             </div>
-                         </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="profile-icon rounded-circle" id="random-bg-color">
+                                {{ substr(Auth::user()->name, 0, 1) }}
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <div class="username">
+                                    <span class="font-weight-bold">{{ Auth::user()->name }}</span>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}"><span class="">Profile</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="">{{ __('Logout') }}</span>
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                     </li>
                      @else
                          <li class="nav-item">
-                             <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Sign In</a>
+                             <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Log In</a>
                          </li>
                      @endauth
                  @endif

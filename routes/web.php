@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\ActivityController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BoardMemberController;
 use App\Http\Controllers\admin\CarouselController;
+use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\EditorialController;
@@ -51,6 +52,7 @@ Route::get('/members', [FrontendController::class,'members']);
 // Post Routes Begin
 Route::post('/postmember', [FrontendController::class,'postMember']);
 Route::post('/postmessage', [FrontendController::class,'postMessage']);
+Route::post('/postcomment', [FrontendController::class,'postComment']);
 // Post Routes End
 
 Route::middleware('auth')->group(function () {
@@ -90,6 +92,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/editorial', EditorialController::class)->names(['editorial']);
     Route::resource('/admin/banner', BannerController::class)->names(['banner']);
     Route::resource('/admin/map', MapController::class)->names(['map']);
+    Route::resource('/admin/comment', CommentController::class)->names(['comment']);
 });
 
 require __DIR__ . '/adminauth.php';

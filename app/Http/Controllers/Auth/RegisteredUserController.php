@@ -46,6 +46,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+       $intendedUrl = session('url.intended', '/');
+
+        // Redirect back to the previous URL without the fragment identifier or fallback to the homepage
+        return redirect($intendedUrl);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
+use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Member;
@@ -95,4 +96,15 @@ class FrontendController extends BaseController
         return redirect()->back();
     }
 
+    public function postComment(Request $request)
+    {
+        $comment = new Comment();
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->comment = $request->comment;
+        $comment->activity_id = $request->activity_id;
+        $comment->save();
+        toast('Comment will be reviewed before publishing. Thank You!','success');
+        return redirect()->back();
+    }
 }

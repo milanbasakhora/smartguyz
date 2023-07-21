@@ -4,10 +4,23 @@
 <head>
     {{-- css --}}
     @include('frontend.layouts.css')
+    <style>
+        .cursor:hover {
+            color: var(--primary);
+        }
+
+        .cursor {
+            cursor: pointer
+        }
+
+        .textarea {
+            resize: none
+        }
+    </style>
 </head>
 
 <body>
-
+    @include('sweetalert::alert')
     <!-- Back to top button -->
     <div class="back-to-top"></div>
 
@@ -80,120 +93,28 @@
                     </div>
                     {{-- Post Share Section End --}}
 
-                    {{-- Show Comments --}}
-                    <div class="show-comments mt-5">
-                        <h3>Comments</h3>
-                        <div class="comments">
-                            <p>No Comments</p>
-                        </div>
-                    </div>
-                    {{-- Show Comments End --}}
+                    <!-- Comment Post Section -->
+                    @include('frontend.components.comment')
+                    {{-- Post Comment Section End --}}
 
-                    <!-- Comment Section -->
-                    <div class="comment-form-wrap pt-5">
-                        <h3 class="mb-5">Leave a comment</h3>
-                        <form action="#" class="">
-                            <div class="form-group">
-                                <label for="comment">Comment</label>
-                                <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-md-6">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn btn-primary">
-                            </div>
-                        </form>
-                    </div>
+                    {{-- Show Comments --}}
+                    @include('frontend.components.show-comments')
+                    {{-- Show Comments End --}}
                 </div>
+
                 <div class="col-lg-4">
-                    <div class="sidebar">
-                        <!-- Latest Activities -->
-                        <div class="sidebar-block">
-                            <div class="sidebar-content">
-                                <h3 class="sidebar-title">Latest Activities</h3>
-                                @foreach ($newactivities as $activity)
-                                    <div class="blog-item">
-                                        <a class="post-thumb" href="/blog/{{ $activity->slug }}">
-                                            @foreach ($activity->activity_images as $index => $activity_image)
-                                                @if ($index == 0)
-                                                    <img src="{{ asset($activity_image->image) }}" alt="">
-                                                @endif
-                                            @endforeach
-                                        </a>
-                                        <div class="content">
-                                            <h5 class="post-title"><a
-                                                    href="/blog/{{ $activity->slug }}">{{ $activity->title }}</a></h5>
-                                            <div class="meta">
-                                                <a href="#"><span
-                                                        class="mai-calendar"></span>{{ $activity->created_at->format('F j, Y') }}</a>
-                                                <a href="#"><span class="mai-person"></span>
-                                                    {{ $company->name }}</a>
-                                                <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar mt-3">
-                        <!-- Oldest Activities -->
-                        <div class="sidebar-block">
-                            <div class="sidebar-content">
-                                <h3 class="sidebar-title">Old Activities</h3>
-                                @foreach ($oldactivities as $activity)
-                                    <div class="blog-item">
-                                        <a class="post-thumb" href="/blog/{{ $activity->slug }}">
-                                            @foreach ($activity->activity_images as $index => $activity_image)
-                                                @if ($index == 0)
-                                                    <img src="{{ asset($activity_image->image) }}" alt="">
-                                                @endif
-                                            @endforeach
-                                        </a>
-                                        <div class="content">
-                                            <h5 class="post-title"><a
-                                                    href="/blog/{{ $activity->slug }}">{{ $activity->title }}</a>
-                                            </h5>
-                                            <div class="meta">
-                                                <a href="#"><span
-                                                        class="mai-calendar"></span>{{ $activity->created_at->format('F j, Y') }}</a>
-                                                <a href="#"><span class="mai-person"></span>
-                                                    {{ $company->name }}</a>
-                                                <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar mt-3">
-                        <div class="sidebar-block">
-                            <div class="sidebar-title">
-                                <h3>Paragraph</h3>
-                            </div>
-                            <div class="sidebar-content">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia numquam nostrum eaque,
-                                    voluptates, soluta expedita vero exercitationem itaque eius commodi odio illum vitae
-                                    molestias tempore, voluptatum ipsam officiis at ratione hic ducimus quaerat harum in
-                                    tenetur! Totam, blanditiis cumque facilis quibusdam voluptatum eveniet ut voluptates
-                                    earum consequuntur ipsam repellendus libero reiciendis laborum impedit. Quos
-                                    mollitia, culpa sit itaque nobis tenetur dignissimos soluta quis assumenda rem magni
-                                    cupiditate veritatis labore recusandae amet quisquam asperiores praesentium officiis
-                                    beatae, voluptatum et saepe similique cumque! Illo odio quis earum ullam dolorum
-                                    culpa beatae error quisquam cumque provident, cupiditate unde quas exercitationem
-                                    nisi ipsa eveniet!</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    {{-- New Activities --}}
+                    @include('frontend.components.newactivities')
+                    {{-- New Activities End --}}
+
+                    {{-- Old Activities --}}
+                    @include('frontend.components.oldactivities')
+                    {{-- Old Activities End --}}
+
+                    {{-- Paragraph --}}
+                    @include('frontend.components.paragraph')
+                    {{-- Paragraph End --}}
                 </div>
             </div> <!-- .row -->
         </div> <!-- .container -->
@@ -204,5 +125,22 @@
     {{-- js --}}
     @include('frontend.layouts.js')
 </body>
+<!-- Your HTML code here -->
+
+<script>
+    $(document).ready(function() {
+        // When the "Comment" icon is clicked, toggle the visibility of the comment form
+        $(".comment-icon").on("click", function() {
+            $(".comment-form").toggle(); // Toggles the visibility of the comment form
+        });
+
+        // Handle the "Comment" button inside the comment form
+        $(".comment-form button[type='button']").on("click", function() {
+            // Here, you can add the logic to submit the comment form to your server
+            // For simplicity, let's just hide the comment form when the "Comment" button is clicked
+            $(".comment-form").hide();
+        });
+    });
+</script>
 
 </html>

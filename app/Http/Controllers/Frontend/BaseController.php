@@ -7,6 +7,7 @@ use App\Models\AboutUs;
 use App\Models\Activity;
 use App\Models\Banner;
 use App\Models\BoardMember;
+use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Editorial;
 use App\Models\Gallery;
@@ -36,6 +37,7 @@ class BaseController extends Controller
         $map = Map::first();
         $galleries = Gallery::orderBy('created_at', 'desc')->paginate(8);
         $notices = Notice::orderBy('created_at', 'desc')->paginate(8);
+        $comments = Comment::all();
         View::share([
             'company' => $company,
             'jumbotron' => $jumbotron,
@@ -50,6 +52,7 @@ class BaseController extends Controller
             'map' => $map,
             'galleries' => $galleries,
             'notices' => $notices,
+            'comments' => $comments,
         ]);
     }
 }
