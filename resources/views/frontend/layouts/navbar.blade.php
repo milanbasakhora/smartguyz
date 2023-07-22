@@ -94,7 +94,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav user-profile ml-auto">
                      {{-- X-dropdown --}}
                      @if (Route::has('login'))
                      @auth

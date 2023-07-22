@@ -13,4 +13,9 @@ class Activity extends Model
     {
         return $this->hasMany(ActivityImage::class);
     }
+    // Define the one-to-many relationship with Comment
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

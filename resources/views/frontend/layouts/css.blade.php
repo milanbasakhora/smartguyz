@@ -14,3 +14,5 @@
     <link rel="stylesheet" href="../frontend/assets/css/theme.css">
 
     <link rel="stylesheet" href="../frontend/assets/css/scrollable-sidebar.css">
+
+    <link rel="stylesheet" href="../frontend/assets/css/comments.css">

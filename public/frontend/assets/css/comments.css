@@ -1,0 +1,45 @@
+
+.cursor:hover {
+    color: var(--primary);
+}
+
+.cursor {
+    cursor: pointer;
+    color: var(--grey);
+
+}
+
+.options {
+    color: var(--grey);
+}
+.textarea {
+    resize: none
+}
+
+.comment-text {
+    color: var(--grey);
+}
+
+/* Add CSS to position the comment options to the left */
+.comment-options {
+    position: absolute;
+    display: none;
+    min-width: 100px; /* Set your preferred min-width */
+}
+
+.comment-options a {
+    display: block; /* Display the links as block-level elements */
+    text-decoration: none;
+    color: var(--grey);
+    max-width: fit-content;
+  }
+
+  .comment-options a.edit-link:hover {
+    color: var(--primary);
+  }
+
+  .comment-options a.delete-link:hover {
+    color: var(--danger);
+  }
+
+
