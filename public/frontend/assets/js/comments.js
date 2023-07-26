@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
 });
 
-// Comment Options
+// Collapse/Expand Toggle
 document.addEventListener('DOMContentLoaded', function () {
     // Get all elements with the class "like py-2 pr-2 cursor ml-auto"
     const toggleIcons = document.querySelectorAll('.like.cursor.ml-auto');

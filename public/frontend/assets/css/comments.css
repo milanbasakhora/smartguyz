@@ -1,5 +1,7 @@
-
-.cursor:hover {
+.cursor.comment-icon:hover,
+.cursor.comment-icon:focus,
+.cursor.comment-icon:active
+{
     color: var(--primary);
 }
 
@@ -29,7 +31,6 @@
 .comment-options {
     position: absolute;
     display: none;
-    left: 89%;
 }
 
 .comment-options button {
@@ -73,6 +74,22 @@
     display: none;
 }
 
+.options button,
+.toggleCollapse button {
+    border: none;
+    max-width: fit-content;
+    outline: none;
+    background-color: transparent;
+    color: var(--grey);
+}
+
+.options button:focus,
+.options button:active,
+.options button:hover,
+.toggleCollapse button:hover {
+    color: var(--primary);
+}
+
 button.edit-link:hover,
 button.edit-link:active,
 button.edit-link:focus,
@@ -112,5 +129,8 @@ button.delete-link:focus {
     justify-content: center;
     gap: 10px; /* Adjust the gap size as needed */
 }
+
+
+
 
 

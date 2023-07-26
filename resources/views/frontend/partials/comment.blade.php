@@ -1,6 +1,6 @@
 <div class="pt-2">
     <!-- Comment content -->
-    <div class="">
+    <div class="comment">
         <!-- Display comment information and content here -->
         <div class="row">
             <!-- Comment profile icon and user information -->
@@ -17,7 +17,7 @@
                 <!-- Comment options -->
                 <div class="coll-lg-6 col-md-6 col-sm-6 d-flex justify-content-end">
                     <div class="options">
-                        <a class="mai-chevron-down" title="Options"></a>
+                        <button class="mai-chevron-down" title="Options"></button>
                         <div class="comment-options text-center">
                             <button class="edit-link" title="Edit" onclick="toggleEdit('{{ $comment->id }}')">
                                 <span class="mai-pencil"></span>
@@ -35,7 +35,7 @@
                             <div class="button-group">
                                 <form action="{{ route('deletecomment', ['id' => $comment->id]) }}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-sm pr-2" onclick="deleteComment('{{ $comment->id }}')">Yes,
+                                    <button class="btn btn-danger btn-sm" onclick="deleteComment('{{ $comment->id }}')">Yes,
                                         Delete</button>
                                 </form>
                                 <button class="btn btn-primary btn-sm" onclick="hideDeleteConfirmation()">Cancel</button>
@@ -45,13 +45,16 @@
                 </div>
             @endif
         </div>
+        {{-- Show COmment & Edit Comment Hidden --}}
         <div class="ml-1 mt-2">
-            <p class="comment-text" id="commentText_{{ $comment->id }}">{{ $comment->comment }}</p>
+            <p class="comment-text" id="commentText_{{ $comment->id }}">
+                {!! nl2br(e($comment->comment)) !!}
+            </p>
             <div id="editContainer_{{ $comment->id }}" style="display: none;">
                 <form action="{{ route('editcomment', ['id' => $comment->id]) }}" method="POST">
                     @csrf
                     <div class="d-flex align-items-start form-group">
-                        <textarea class="form-control ml-1" name="comment" id="editCommentInput_{{ $comment->id }}" required>{{ $comment->comment }}</textarea>
+                        <textarea class="form-control ml-1" name="comment" id="editCommentInput_{{ $comment->id }}" required>{!! $comment->comment !!}</textarea>
                     </div>
                     <div class="mt-2 text-right">
                         <button onclick="saveCommentChanges('{{ $comment->id }}')" class="btn btn-primary btn-sm"
@@ -81,17 +84,17 @@
 
         {{-- Reply Button --}}
         <div class="like pr-2 cursor comment-icon" data-comment-id="{{ $comment->id }}"></i><span class="ml-1">Reply</span></div>
-
-        {{-- Replies --}}
+        {{-- Comment Collapse --}}
         @if ($comment->replies->isNotEmpty())
-            <div class="like cursor ml-auto" id="toggleIcon{{ $comment->id }}">
-                <a data-toggle="collapse" data-target="#collapseComment{{ $comment->id }}" aria-expanded="false"
+            <div class="like cursor ml-auto toggleCollapse" id="toggleIcon{{ $comment->id }}">
+                <button data-toggle="collapse" data-target="#collapseComment{{ $comment->id }}" aria-expanded="false"
                     aria-controls="collapseComment{{ $comment->id }}">
                     <i class="mai-remove" title="Collapse" id="removeIcon{{ $comment->id }}"></i>
-                </a>
-                <i class="mai-add hidden" title="Expand" id="addIcon{{ $comment->id }}" data-toggle="collapse"
-                    data-target="#collapseComment{{ $comment->id }}" aria-expanded="false"
-                    aria-controls="collapseComment{{ $comment->id }}"></i>
+                    <i class="mai-add hidden" title="Expand" id="addIcon{{ $comment->id }}" data-toggle="collapse"
+                        data-target="#collapseComment{{ $comment->id }}" aria-expanded="false"
+                        aria-controls="collapseComment{{ $comment->id }}"></i>
+                </button>
+
             </div>
         @endif
     </div>
@@ -125,8 +128,8 @@
     @else
         <!-- Show message if user is not logged in -->
         <div class="comment-form" data-comment-id="{{ $comment->id }}" style="display:none;">
-            <div class="">
-                <p>To comment, you need to login first.</p>
+            <div class="pt-4 pl-1 text-danger">
+                <p>You must login first, to be able to comment.</p>
             </div>
         </div>
     @endif
@@ -138,7 +141,6 @@
             @foreach ($comment->replies as $reply)
             <div class="py-2">
                 @include('frontend.partials.comment', ['comment' => $reply])
-
             </div>
             @endforeach
         </div>

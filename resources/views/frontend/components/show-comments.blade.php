@@ -10,7 +10,7 @@
                 @foreach ($comments as $comment)
                     @if (!$comment->isReply())
                         <div class="col-md-12 pt-4">
-                            <div class="card p-4">
+                            <div class="card p-4 bg-light">
                                 @include('frontend.partials.comment', ['comment' => $comment])
                             </div>
                         </div>
@@ -18,7 +18,7 @@
                 @endforeach
             @else
                 <div class="col-md-12 pt-3">
-                    <div class="card p-4">
+                    <div class="card p-4 bg-light">
                         <p class="comment-text">No Comments</p>
                     </div>
                 </div>
