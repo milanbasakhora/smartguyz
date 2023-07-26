@@ -23,10 +23,6 @@
     resize: none
 }
 
-/* .comment-text {
-    color: var(--grey);
-} */
-
 /* Add CSS to position the comment options to the left */
 .comment-options {
     position: absolute;
@@ -130,7 +126,54 @@ button.delete-link:focus {
     gap: 10px; /* Adjust the gap size as needed */
 }
 
+/* Profile Dropdown */
+.comment-profile-dropdown{
+    padding-top: 2.5%;
+}
 
+.comment-profile-dropdown button{
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--grey);
+}
+
+.comment-profile-dropdown a{
+    padding-left: 15px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--grey);
+}
+
+.comment-profile-dropdown button:focus{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.comment-profile-dropdown a:hover{
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.comment-profile-dropdown a.logout:hover{
+    color: var(--danger);
+}
+
+.comment-profile-dropdown div.dropdown-menu{
+
+}
+
+.comment-profile-dropdown hr{
+    border-width: 2px;
+    border-color: var(--primary);
+    margin-left: 10%;
+    margin-right: 50%;
+    border-radius: 0;
+}
 
 
 
