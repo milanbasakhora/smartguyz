@@ -84,7 +84,7 @@
 
         {{-- Replies --}}
         @if ($comment->replies->isNotEmpty())
-            <div class="like py-2 cursor ml-auto" id="toggleIcon{{ $comment->id }}">
+            <div class="like cursor ml-auto" id="toggleIcon{{ $comment->id }}">
                 <a data-toggle="collapse" data-target="#collapseComment{{ $comment->id }}" aria-expanded="false"
                     aria-controls="collapseComment{{ $comment->id }}">
                     <i class="mai-remove" title="Collapse" id="removeIcon{{ $comment->id }}"></i>
@@ -134,9 +134,12 @@
 
     <!-- Display nested replies -->
     @if ($comment->replies->isNotEmpty())
-        <div class="replies collapse show pl-5 py-2" id="collapseComment{{ $comment->id }}">
+        <div class="replies collapse show pl-5 pt-2" id="collapseComment{{ $comment->id }}">
             @foreach ($comment->replies as $reply)
+            <div class="py-2">
                 @include('frontend.partials.comment', ['comment' => $reply])
+
+            </div>
             @endforeach
         </div>
     @endif

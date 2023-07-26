@@ -32,7 +32,7 @@ $(document).ready(function() {
 // Comment Options
 document.addEventListener('DOMContentLoaded', function () {
     // Get all elements with the class "like py-2 pr-2 cursor ml-auto"
-    const toggleIcons = document.querySelectorAll('.like.py-2.cursor.ml-auto');
+    const toggleIcons = document.querySelectorAll('.like.cursor.ml-auto');
 
     // Add click event listener to each element
     toggleIcons.forEach((toggleIcon) => {
