@@ -52,18 +52,27 @@
             </nav>
         </div>
     </div>
-    <form action="/postcomment" method="POST" class="">
-        @csrf
-        <div class="form-group">
-            <input type="text" class="form-control" id="activity-id" name="activity_id" value="{{ $blog->id }}"
-                hidden>
-        </div>
-        <div class="form-group">
-            <label for="comment">Comment</label>
-            <textarea name="comment" id="comment" cols="30" rows="5" name="comment" class="form-control" required></textarea>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Comment</button>
-        </div>
-    </form>
+    @if (auth()->check()) <!-- Check if user is authenticated -->
+        <form action="/postcomment" method="POST" class="">
+            @csrf
+            <div class="form-group">
+                <input type="text" class="form-control" id="activity-id" name="activity_id"
+                    value="{{ $blog->id }}" hidden>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="parent-id" name="parent_id"
+                    value="{{ $blog->parent_id }}" hidden>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea name="comment" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Comment</button>
+            </div>
+        </form>
+    @else
+        <p>To comment, you need to login first.</p>
+    @endif
+
 </div>

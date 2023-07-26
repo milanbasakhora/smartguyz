@@ -9,37 +9,108 @@
 
 }
 
+.options:hover {
+    color: var(--primary);
+}
+
 .options {
+    size: 100%;
     color: var(--grey);
 }
 .textarea {
     resize: none
 }
 
-.comment-text {
+/* .comment-text {
     color: var(--grey);
-}
+} */
 
 /* Add CSS to position the comment options to the left */
 .comment-options {
     position: absolute;
     display: none;
-    min-width: 100px; /* Set your preferred min-width */
+    left: 89%;
 }
 
-.comment-options a {
-    display: block; /* Display the links as block-level elements */
+.comment-options button {
+    display: block;
     text-decoration: none;
+    align-items: center;
+    border: none;
+    background-color: transparent;
     color: var(--grey);
     max-width: fit-content;
-  }
+}
 
-  .comment-options a.edit-link:hover {
+.comment-form {
+    display: none;
+}
+
+.comment-options button.edit-link:focus,.comment-options button.edit-link:active  {
+    border: none;
+}
+
+.comment-options button.edit-link:hover {
     color: var(--primary);
-  }
+}
 
-  .comment-options a.delete-link:hover {
+.comment-options button.delete-link:hover {
     color: var(--danger);
-  }
+}
+
+/* Add this class to hide the element when needed */
+.hidden {
+    display: none;
+}
+
+/* Show the nested replies when their corresponding mai-add icon is targeted */
+.replies:target {
+    display: block;
+}
+
+/* Hide the nested replies when their corresponding mai-remove icon is targeted */
+.replies:target ~ .replies {
+    display: none;
+}
+
+button.edit-link:hover,
+button.edit-link:active,
+button.edit-link:focus,
+button.delete-link:hover,
+button.delete-link:active,
+button.delete-link:focus {
+    border: none;
+    outline: none;
+}
+
+ /* Styles for the popup message */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap size as needed */
+}
 
 

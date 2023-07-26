@@ -32,10 +32,11 @@ class CommentController extends Controller
     {
         $comment = new Comment();
         $comment->activity_id = $request->activity_id;
-        $comment->name = $request->name;
-        $comment->email = $request->email;
+        $comment->user_id = $request->user_id;
+        $comment->parent_id = $request->parent_id;
         $comment->comment = $request->comment;
         $comment->save();
+        toast('Comment added successfully','success');
         return redirect()->back();
     }
 
@@ -61,9 +62,9 @@ class CommentController extends Controller
     public function update(Request $request, string $id)
     {
         $comment = Comment::find($id);
-        $comment->review = $request->review;
+        $comment->comment = $comment->comment;
         $comment->update();
-        toast('Record updated successfully','success');
+        toast('Coment edited successfully','success');
         return redirect()->back();
     }
 

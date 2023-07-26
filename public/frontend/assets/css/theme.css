@@ -1,9 +1,9 @@
 :root {
   --primary: #00ff88;
   /* --primary: #ff0000; */
+  /* --primary: #1900ff; */
   --accent: #FF3D85;
   --secondary: #1900ff;
-  /* --secondary: #4E5AFE; */
   --warning: #EED818;
   --info: #05B4E1;
   --danger: #ff0000;
@@ -20,6 +20,16 @@
 }
 
 .profile-icon {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+
+.reply-profile-icon {
     width: 30px;
     height: 30px;
     display: inline-flex;

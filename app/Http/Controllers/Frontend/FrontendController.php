@@ -9,6 +9,8 @@ use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class FrontendController extends BaseController
 {
@@ -38,7 +40,11 @@ class FrontendController extends BaseController
         $blog = Activity::where('slug', $slug)->first();
         $newactivities = Activity::orderBy('created_at', 'desc')->get();
         $oldactivities = Activity::all();
-        return view('frontend.pages.blog-details', compact('blog','newactivities','oldactivities'));
+        $comments = $blog->comments;
+        $comments->each(function ($comment) {
+            $comment->loadNestedReplies();
+        });
+        return view('frontend.pages.blog-details', compact('blog','newactivities','oldactivities','comments'));
     }
 
     public function contact()
@@ -98,13 +104,57 @@ class FrontendController extends BaseController
 
     public function postComment(Request $request)
     {
+        $user = Auth::user();
         $comment = new Comment();
-        $comment->name = $request->name;
-        $comment->email = $request->email;
         $comment->comment = $request->comment;
         $comment->activity_id = $request->activity_id;
+        $comment->user_id = $user->id;
+        $comment->name = $user->name;
         $comment->save();
-        toast('Comment will be reviewed before publishing. Thank You!','success');
+        toast('Comment added successfully','success');
+        return redirect()->back();
+    }
+
+    public function replyComment(Request $request)
+    {
+        $user = Auth::user();
+        $comment = new Comment();
+        $comment->comment = $request->comment;
+        $comment->activity_id = $request->activity_id;
+        $comment->parent_id = $request->parent_id;
+        $comment->user_id = $user->id;
+        $comment->name = $user->name;
+        $comment->save();
+        toast('Comment added successfully','success');
+        return redirect()->back();
+    }
+
+    public function editComment(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+
+        // Make sure the comment exists before proceeding with the update
+        if (!$comment) {
+            abort(404); // Or handle the case where the comment doesn't exist
+        }
+        $comment->comment = $request->comment;
+        $comment->update();
+
+        toast('Comment updated successfully', 'success');
+        return redirect()->back();
+    }
+
+    public function deleteComment(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+
+        // Make sure the comment exists before proceeding with the update
+        if (!$comment) {
+            abort(404); // Or handle the case where the comment doesn't exist
+        }
+        $comment->delete();
+
+        toast('Comment deleted successfully', 'success');
         return redirect()->back();
     }
 }

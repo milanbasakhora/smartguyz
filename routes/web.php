@@ -52,13 +52,16 @@ Route::get('/members', [FrontendController::class,'members']);
 // Post Routes Begin
 Route::post('/postmember', [FrontendController::class,'postMember']);
 Route::post('/postmessage', [FrontendController::class,'postMessage']);
-Route::post('/postcomment', [FrontendController::class,'postComment']);
 // Post Routes End
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/postcomment', [FrontendController::class,'postComment']);
+    Route::post('/replycomment', [FrontendController::class,'replyComment']);
+    Route::post('/editcomment/{id}', [FrontendController::class,'editComment'])->name('editcomment');
+    Route::post('/deletecomment/{id}', [FrontendController::class,'deleteComment'])->name('deletecomment');
 });
 
 Route::get('dashboard', function () {
