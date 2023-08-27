@@ -163,10 +163,6 @@ button.delete-link:focus {
     color: var(--danger);
 }
 
-.comment-profile-dropdown div.dropdown-menu{
-
-}
-
 .comment-profile-dropdown hr{
     border-width: 2px;
     border-color: var(--primary);

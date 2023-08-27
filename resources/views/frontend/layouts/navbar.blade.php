@@ -1,35 +1,29 @@
 <header>
-    <style>
-       /* .topbar a{
-            color: rgb(0, 0, 0) !important;
-        }
-        #black a{
-            color: black !important;
-        } */
-    </style>
-    <div class="topbar">
+    <div class="topbar" id="changingTopbar">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 text-sm">
                     <div class="site-info">
-                        <a href="tel:{{ $company->contact }}"><span class="mai-call text-primary"></span> {{ $company->contact }}</a>
+                        <a href="tel:{{ $company->contact }}"><span class="mai-call text-primary"></span>
+                            {{ $company->contact }}</a>
                         <span class="divider">|</span>
-                        <a href="mailto:{{ $company->email }}"><span class="mai-mail text-primary"></span>{{ $company->email }}</a>
+                        <a href="mailto:{{ $company->email }}"><span
+                                class="mai-mail text-primary"></span>{{ $company->email }}</a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right text-sm">
                     <div class="social-mini-button">
                         @if ($company->facebook)
-                        <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
+                            <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
                         @endif
                         @if ($company->twitter)
-                        <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
+                            <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
                         @endif
                         @if ($company->youtube)
-                        <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
+                            <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
                         @endif
                         @if ($company->instagram)
-                        <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
+                            <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
                         @endif
                     </div>
                 </div>
@@ -37,7 +31,7 @@
         </div> <!-- .container -->
     </div> <!-- .topbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light">
         <div class="container">
             <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo) }}" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>&nbsp;Guyz</a>
@@ -70,7 +64,8 @@
                     <li class="nav-item {{ request()->is('notices') ? 'active' : '' }}">
                         <a class="nav-link" href="/notices">Notices</a>
                     </li>
-                    <li class="nav-item dropdown {{ request()->is('editorial-team', 'members','terms-n-conditions','privacy') ? 'active' : '' }}">
+                    <li
+                        class="nav-item dropdown {{ request()->is('editorial-team', 'members', 'terms-n-conditions', 'privacy') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             More
@@ -94,45 +89,50 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav user-profile ml-auto">
-                     {{-- X-dropdown --}}
-                     @if (Route::has('login'))
-                     @auth
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="profile-icon rounded-circle" id="random-bg-color">
-                                {{ substr(Auth::user()->name, 0, 1) }}
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <div class="username">
-                                    <span class="font-weight-bold">{{ Auth::user()->name }}</span>
+                <div class="navbar-nav user-profile ml-auto">
+                    {{-- X-dropdown --}}
+                    @if (Route::has('login'))
+                        @auth
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <div class="profile-icon rounded-circle" id="random-bg-color">
+                                        {{ substr(Auth::user()->name, 0, 1) }}
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu" style="width: 150px;">
+                                    <li class="nav-item">
+                                        <div class="username">
+                                            <span class="font-weight-bold" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">{{ Auth::user()->name }}</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="nav-item py-1">
+                                        <a class="nav-link edit mai-person-outline" href="/user-profile"><span
+                                                class="pr-2"></span>Edit Profile</a>
+                                    </li>
+                                    <li class="nav-item py-1">
+                                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a class="nav-link logout mai-power" href="#"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <span class="">{{ __('Logout') }}</span>
+                                            </a>
+                                        </form>
+                                    </li>
                                 </div>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+                            </div>
+                        @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}"><span class="">Profile</span></a>
+                                <a class="btn btn-primary ml-lg-3" href="#" id="openLoginModal">Log In</a>
+                                @include('frontend.modals.login')
+                                @include('frontend.modals.register')
                             </li>
-                            <li class="nav-item">
-                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <span class="">{{ __('Logout') }}</span>
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
-                     </li>
-                     @else
-                         <li class="nav-item">
-                             <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Log In</a>
-                         </li>
-                     @endauth
-                 @endif
-                </ul>
+                        @endauth
+                    @endif
+                </div>
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
     </nav>

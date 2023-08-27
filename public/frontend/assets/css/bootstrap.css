@@ -6084,6 +6084,12 @@ a.close.disabled {
   margin: -1rem -1rem -1rem auto;
 }
 
+.modal-body .close:active,
+.modal-body .close:focus {
+    border:none;
+    outline:none;
+  }
+
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;

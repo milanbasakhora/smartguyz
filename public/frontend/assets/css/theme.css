@@ -1,5 +1,7 @@
 :root {
+  /* --primary:#3CB371; */
   --primary: #00ff88;
+  --primary-dimmed: #27b171;
   /* --primary: #ff0000; */
   /* --primary: #1900ff; */
   --accent: #FF3D85;
@@ -13,10 +15,29 @@
   --cs: #596261;
   --grey: #6E807A;
 }
+
+/* Show or hide password */
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+/* Show or hide password */
+
 /* Generate a random background color */
 .username {
+    font-family: "Source Sans Pro", sans-serif;
     color: var(--grey);
+    /* font-style: italic;
+    font-weight: bold; */
     padding-left: 15px;
+    padding-top: 5px;
 }
 
 .profile-icon {
@@ -47,6 +68,14 @@
     align-items: center;
     color: white;
     font-size: 20px;
+}
+
+.nav-item.dropdown a.edit:hover {
+    color: var(--primary);
+}
+
+.nav-item.dropdown a.logout:hover {
+    color: var(--danger);
 }
 
 body {
@@ -519,6 +548,30 @@ a.text-dark:hover, a.text-dark:focus {
   box-shadow: none;
 }
 
+.btn-grey {
+    color: #fff;
+    background-color: var(--grey);
+    border-color: transparent;
+  }
+
+  .btn-grey.disabled, .btn-grey:disabled {
+    color: #fff;
+    background-color: #1e1f1c;
+    border-color: transparent;
+  }
+
+  .btn-grey:not(:disabled):not(.disabled):active, .btn-grey:not(:disabled):not(.disabled).active,
+  .show > .btn-grey.dropdown-toggle {
+    color: #fff;
+    background-color: var(--grey);
+    border-color: #1e1f1c;
+  }
+
+  .btn-grey:not(:disabled):not(.disabled):active:focus, .btn-grey:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-grey.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+
 .btn-primary:hover,
 .btn-accent:hover,
 .btn-secondary:hover,
@@ -526,6 +579,7 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-info:hover,
 .btn-warning:hover,
 .btn-danger:hover,
+.btn-grey:hover,
 .btn-dark:hover {
   color: #fff;
   background-color: var(--cs);
@@ -854,10 +908,23 @@ a.text-dark:hover, a.text-dark:focus {
   pointer-events: none;
 }
 
-
 .topbar {
-  border-bottom: 1px solid #E8EEE4;
-}
+    border-bottom: 1px solid #E8EEE4;
+    background-color: var(--cs);
+    animation: colorAnimation 5s linear infinite;
+  }
+
+  @keyframes colorAnimation {
+    0% {
+      background-color: var(--cs);
+    }
+    50% {
+      background-color: var(--primary-dimmed);
+    }
+    100% {
+      background-color: var(--cs);
+    }
+  }
 
 .topbar .row {
   align-items: center;
@@ -867,7 +934,7 @@ a.text-dark:hover, a.text-dark:focus {
 .topbar .site-info a {
   display: inline-flex;
   align-items: center;
-  color: #A1AAA7;
+  color: var(--light);
 }
 
 .topbar .site-info a:hover {
@@ -882,18 +949,18 @@ a.text-dark:hover, a.text-dark:focus {
 .topbar .site-info .divider {
   margin-left: 8px;
   margin-right: 8px;
-  color: #BEC8B8;
+  color: var(--light);
 }
 
 .topbar .social-mini-button a {
   display: inline-block;
   padding: 4px 8px;
-  color: #A1AAA7;
+  color: var(--light);
 }
 
 .topbar .social-mini-button a:hover {
   text-decoration: none;
-  color: #6E807A;
+  color: var(--primary);
 }
 
 
@@ -951,11 +1018,11 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(110, 128, 122, 0.8);
+  color: var(--grey);
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: #6E807A;
+  color: var(--cs);
 }
 
 .navbar-light .navbar-nav .show > .nav-link,
@@ -1322,16 +1389,30 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 24px;
 }
 
-.card-doctor {
+.card-primary {
   display: block;
-  margin: 15px auto;
-  width: 100%;
-  max-width: 240px;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(154, 159, 151, 0.2);
   overflow: hidden;
 }
+
+.card-primary .card-header {
+    position: relative;
+    overflow: hidden;
+  }
+
+
+.card-doctor {
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    max-width: 240px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(154, 159, 151, 0.2);
+    overflow: hidden;
+  }
 
 .card-doctor .text-xl {
   font-weight: 500;

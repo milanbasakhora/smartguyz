@@ -15,19 +15,11 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
     public function create(): View
     {
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -46,9 +38,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-       $intendedUrl = session('url.intended', '/');
-
-        // Redirect back to the previous URL without the fragment identifier or fallback to the homepage
+        $intendedUrl = session('url.intended', '/');
         return redirect($intendedUrl);
     }
 }

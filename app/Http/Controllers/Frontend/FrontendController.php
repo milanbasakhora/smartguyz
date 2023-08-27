@@ -19,6 +19,22 @@ class FrontendController extends BaseController
         return view('frontend.index');
     }
 
+    public function userLogin()
+    {
+        return view('frontend.pages.login');
+    }
+
+    public function userRegister()
+    {
+        return view('frontend.pages.register');
+    }
+
+    public function userProfile()
+    {
+        $user = Auth::user();
+        return view('frontend.pages.profile', compact('user'));
+    }
+
     public function about()
     {
         return view('frontend.pages.about');

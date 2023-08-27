@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Validator;
 
-class ProfileController extends Controller
+class AdminProfileController extends Controller
 {
     public function edit(Request $request): View
     {
@@ -28,30 +27,26 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-        toast('Profile Updated successfully', 'success');
-        return Redirect()->back();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    public function destroy(Request $request): JsonResponse
+    public function destroy(Request $request): RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
+        $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
-
-        if ($validator->fails()) {
-            return response()->json(['success' => false, 'errors' => $validator->errors()]);
-        }
 
         $user = $request->user();
 
         Auth::logout();
 
         $user->delete();
-        toast('User deleted successfully','success');
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return response()->json(['success' => true]);
+        $intendedUrl = session('url.intended', '/');
+        return redirect($intendedUrl);
     }
 }

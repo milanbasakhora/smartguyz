@@ -118,3 +118,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// Show or hide password
+$(document).ready(function() {
+    $('.toggle-password').click(function() {
+        const targetInputId = $(this).data('target');
+        const targetInput = $('#' + targetInputId);
+        const passwordFieldType = targetInput.attr('type');
+        const toggleIcon = $(this);
+
+        if (passwordFieldType === 'password') {
+            targetInput.attr('type', 'text');
+            toggleIcon.removeClass('mai-eye-off-outline').addClass('mai-eye-outline');
+        } else {
+            targetInput.attr('type', 'password');
+            toggleIcon.removeClass('mai-eye-outline').addClass('mai-eye-off-outline');
+        }
+    });
+});
