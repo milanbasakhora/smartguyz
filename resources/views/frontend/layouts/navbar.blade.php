@@ -126,9 +126,7 @@
                             </div>
                         @else
                             <li class="nav-item">
-                                <a class="btn btn-primary ml-lg-3" href="#" id="openLoginModal">Log In</a>
-                                @include('frontend.modals.login')
-                                @include('frontend.modals.register')
+                                <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}" id="">Log In</a>
                             </li>
                         @endauth
                     @endif

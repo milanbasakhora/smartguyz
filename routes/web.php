@@ -36,10 +36,8 @@ use Illuminate\Support\Facades\Route;
 */
 // Get Routes Begin
 Route::get('/', [FrontendController::class,'home'] )->name('home');
-Route::get('/user-login', [FrontendController::class,'userLogin'] );
-Route::get('/user-register', [FrontendController::class,'userRegister'] );
 Route::get('/user-profile', [FrontendController::class,'userProfile'] );
-Route::get('/about', [FrontendController::class,'about'] );
+Route::get('/about', [FrontendController::class,'about']);
 Route::get('/team', [FrontendController::class,'team']);
 Route::get('/blog', [FrontendController::class,'blog']);
 Route::get('/blog/{slug}', [FrontendController::class,'blogdetails']);
