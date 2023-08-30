@@ -44,7 +44,7 @@
     <div class="page-section">
         <div class="container">
             <h1 class="text-center wow fadeInUp">Get in Touch</h1>
-            <form action="/postmessage" method="post" class="contact-form mt-5">
+            <form action="/postmessage" method="post" class="contact-form mt-5" target="_self">
                 @csrf
                 <div class="row mb-3">
                     <div class="col-sm-6 py-2 wow fadeInLeft">

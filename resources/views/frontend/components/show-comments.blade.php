@@ -1,6 +1,6 @@
 @if (isset($blog))
     <div class="show-comments mt-5 pb-4">
-        @if ($blog->comments()->count()>0)
+        @if ($blog->comments()->count() > 0)
             <h3>Comments ({{ $blog->comments()->count() }})</h3>
         @else
             <h3>Comments</h3>
@@ -26,4 +26,3 @@
         </div>
     </div>
 @endif
-

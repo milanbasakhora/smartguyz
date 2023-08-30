@@ -74,26 +74,19 @@ function cancelEdit(commentId) {
 
 // Function to show the delete confirmation popup
 function showDeleteConfirmation(commentId) {
-    var popup = document.getElementById('deleteConfirmation');
+    var popup = document.getElementById('deleteConfirmation' + commentId);
     popup.style.display = 'block';
     // Store the comment ID in a data attribute to use later when confirming the delete action
     popup.dataset.commentId = commentId;
 }
 
 // Function to hide the delete confirmation popup
-function hideDeleteConfirmation() {
-    var popup = document.getElementById('deleteConfirmation');
+function hideDeleteConfirmation(commentId) {
+    var popup = document.getElementById('deleteConfirmation' + commentId);
     popup.style.display = 'none';
 }
 
-// Function to handle the delete action
-function deleteComment(commentId) {
-    // Perform the actual delete action here (e.g., submit the form or make an AJAX request)
-    // You can access the comment ID using the 'commentId' parameter
 
-    // After the delete action is completed, hide the popup
-    hideDeleteConfirmation();
-}
 
 
 

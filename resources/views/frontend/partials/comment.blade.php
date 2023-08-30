@@ -29,16 +29,17 @@
                         </div>
                     </div>
                     <!-- The custom popup message -->
-                    <div id="deleteConfirmation" class="popup">
+                    <div id="deleteConfirmation{{ $comment->id }}" class="popup">
                         <div class="popup-content">
                             <p>Are you sure you want to delete this item?</p>
                             <div class="button-group">
                                 <form action="{{ route('deletecomment', ['id' => $comment->id]) }}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-sm" onclick="deleteComment('{{ $comment->id }}')">Yes,
+                                    <button class="btn btn-danger btn-sm">Yes,
                                         Delete</button>
                                 </form>
-                                <button class="btn btn-primary btn-sm" onclick="hideDeleteConfirmation()">Cancel</button>
+                                <button class="btn btn-primary btn-sm"
+                                    onclick="hideDeleteConfirmation('{{ $comment->id }}')">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -83,7 +84,8 @@
         </div> --}}
 
         {{-- Reply Button --}}
-        <div class="like pr-2 cursor comment-icon" data-comment-id="{{ $comment->id }}"></i><span class="ml-1">Reply</span></div>
+        <div class="like pr-2 cursor comment-icon" data-comment-id="{{ $comment->id }}"></i><span
+                class="ml-1">Reply</span></div>
         {{-- Comment Collapse --}}
         @if ($comment->replies->isNotEmpty())
             <div class="like cursor ml-auto toggleCollapse" id="toggleIcon{{ $comment->id }}">
@@ -139,9 +141,9 @@
     @if ($comment->replies->isNotEmpty())
         <div class="replies collapse show pl-5 pt-2" id="collapseComment{{ $comment->id }}">
             @foreach ($comment->replies as $reply)
-            <div class="py-2">
-                @include('frontend.partials.comment', ['comment' => $reply])
-            </div>
+                <div class="py-2">
+                    @include('frontend.partials.comment', ['comment' => $reply])
+                </div>
             @endforeach
         </div>
     @endif

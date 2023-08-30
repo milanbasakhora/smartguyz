@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 @else
-                    <a class="btn btn-primary ml-lg-3" href="/user-login">Log In</a>
+                    <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Log In</a>
                 @endauth
             @endif
             </div>
