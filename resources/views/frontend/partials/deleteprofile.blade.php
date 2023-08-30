@@ -22,9 +22,6 @@
                         <i class="toggle-password mai-eye-off-outline" data-target="userdeletepassword"></i>
                     </div>
                     <div class="pt-2 error text-danger" id="errorMessage" style="display: none;"></div>
-                    @error('password')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
                 </label>
                 <div class="button-group pt-2">
                     <button type="button" class="btn btn-danger btn-sm" id="deleteButton">
@@ -49,8 +46,9 @@
         const cancelButton = document.getElementById("cancelButton");
         const deleteForm = document.getElementById("deleteForm");
         const errorMessage = document.getElementById("errorMessage");
+        const popup = document.getElementById("userdeleteConfirmation");
 
-        deleteButton.addEventListener("click", function() {
+        function handleDelete() {
             // Use AJAX to submit the form data asynchronously
             fetch(deleteForm.action, {
                     method: "POST",
@@ -67,10 +65,30 @@
                         errorMessage.style.display = "block";
                     }
                 });
+        }
 
-            cancelButton.addEventListener("click", function() {
-                hideUserDeleteConfirmation();
-            });
+        deleteButton.addEventListener("click", handleDelete);
+
+        cancelButton.addEventListener("click", function() {
+            hideUserDeleteConfirmation();
         });
+
+        document.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                if (popup.style.display === "block") {
+                    handleDelete();
+                    event.preventDefault(); // Prevent form submission
+                }
+            }
+        });
+
+        function hideUserDeleteConfirmation() {
+            popup.style.display = 'none';
+        }
+
+        function showUserDeleteConfirmation(userId) {
+            popup.style.display = 'block';
+            popup.dataset.userId = userId;
+        }
     });
 </script>

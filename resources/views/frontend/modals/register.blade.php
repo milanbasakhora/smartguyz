@@ -14,55 +14,33 @@
                             <form class="mt-4" method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name" :value="__('Name')">Name</label>
+                                    <label for="name" value="__('Name')">Name</label>
                                     <input type="name" class="form-control" id="name" name="name"
-                                        :value="old('name')" required autofocus autocomplete="name">
-                                    @php
-                                        $nameErrors = $errors->get('name');
-                                    @endphp
-                                    @if ($nameErrors)
-                                        <div class="mt-2 text-danger text-sm">
-                                            @foreach ($nameErrors as $error)
-                                                <p>{{ $error }}</p>
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                        value="{{ old('name') }}" required autofocus autocomplete="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email address</label>
                                     <input type="email" class="form-control" id="email" name="email"
-                                        :value="old('email')" required autocomplete="username">
-                                    @php
-                                        $emailErrors = $errors->get('email');
-                                    @endphp
-                                    @if ($emailErrors)
-                                        <div class="mt-2 text-danger text-sm">
-                                            @foreach ($emailErrors as $error)
-                                                <p>{{ $error }}</p>
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    value="{{ old('email') }}" required autocomplete="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" :value="__('Password')">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" required
+                                    <label for="password" value="__('Password')">Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" id="registerPassword" name="new-password" required
                                         autocomplete="new-password">
-                                    @php
-                                        $passwordErrors = $errors->get('password');
-                                    @endphp
-                                    @if ($passwordErrors)
-                                        <div class="mt-2 text-danger text-sm">
-                                            @foreach ($passwordErrors as $error)
-                                                <p>{{ $error }}</p>
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                        <i class="toggle-password mai-eye-off-outline"
+                                        data-target="registerPassword"></i>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password_confirmation" :value="__('Confirm Password')">Confirm
+                                    <label for="password_confirmation" value="__('Confirm Password')">Confirm
                                         Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation"
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" id="registerpassword_confirmation"
                                         name="password_confirmation" required autocomplete="new-password">
+                                        <i class="toggle-password mai-eye-off-outline"
+                                            data-target="registerpassword_confirmation"></i>
+                                    </div>
                                     @php
                                         $passwordConfirmationErrors = $errors->get('password_confirmation');
                                     @endphp

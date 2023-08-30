@@ -4,26 +4,26 @@
             <div class="row">
                 <div class="col-sm-8 text-sm">
                     <div class="site-info">
-                        <a href="tel:{{ $company->contact }}"><span class="mai-call text-primary"></span>
-                            {{ $company->contact }}</a>
+                        <a href="tel:{{ $company->contact ?? '' }}"><span class="mai-call text-primary"></span>
+                            {{ $company->contact ?? '' }}</a>
                         <span class="divider">|</span>
-                        <a href="mailto:{{ $company->email }}"><span
-                                class="mai-mail text-primary"></span>{{ $company->email }}</a>
+                        <a href="mailto:{{ $company->email ?? "" }}"><span
+                                class="mai-mail text-primary"></span>{{ $company->email ?? '' }}</a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right text-sm">
                     <div class="social-mini-button">
-                        @if ($company->facebook)
-                            <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
+                        @if ($company->facebook ?? '')
+                            <a href="{{ $company->facebook ?? '' }}"><span class="mai-logo-facebook-f"></span></a>
                         @endif
-                        @if ($company->twitter)
-                            <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
+                        @if ($company->twitter ?? '')
+                            <a href="{{ $company->twitter ?? ''}}"><span class="mai-logo-twitter"></span></a>
                         @endif
-                        @if ($company->youtube)
-                            <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
+                        @if ($company->youtube ?? '')
+                            <a href="{{ $company->youtube ?? '' }}"><span class="mai-logo-youtube"></span></a>
                         @endif
-                        @if ($company->instagram)
-                            <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
+                        @if ($company->instagram ?? '')
+                            <a href="{{ $company->instagram ?? '' }}"><span class="mai-logo-instagram"></span></a>
                         @endif
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo) }}" class="logo"
+            <a class="navbar-brand" href="/"><span><img src="{{ asset($company->logo ?? '') }}" class="logo"
                         alt=""></span><span class="text-primary">Smart</span>&nbsp;Guyz</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                 aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">

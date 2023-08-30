@@ -1,9 +1,4 @@
 $(document).ready(function() {
-    // Open profile modal
-    $("#openProfileModal").click(function() {
-        $("#profileModal").modal("show");
-    });
-
     // Open the login modal
     $("#openLoginModal").click(function() {
         $("#loginModal").modal("show");
@@ -29,9 +24,6 @@ $(document).ready(function() {
     $("#closeRegisterModal").click(function() {
         $("#registerModal").modal("hide"); // Close the register modal
     });
-
-    $("#closeProfileModal").click(function() {
-        $("#profileModal").modal("hide"); // Close the profile modal
-    });
 });
+
 

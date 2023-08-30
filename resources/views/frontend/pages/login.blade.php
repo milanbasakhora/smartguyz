@@ -12,7 +12,7 @@
     <div class="back-to-top"></div>
 
     <!-- Navbar -->
-    @include('frontend.layouts.navbar');
+    {{-- @include('frontend.layouts.navbar'); --}}
 
     <div class="page-section">
         <div class="container">
@@ -69,7 +69,7 @@
     </div>
 
     {{-- Footer --}}
-    @include('frontend.layouts.footer')
+    {{-- @include('frontend.layouts.footer') --}}
 
     {{-- JavaScript --}}
     @include('frontend.layouts.js')

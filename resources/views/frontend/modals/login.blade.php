@@ -1,6 +1,5 @@
 <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
-    aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -20,6 +19,7 @@
                                         $emailErrors = $errors->get('email');
                                     @endphp
                                     @if ($emailErrors)
+
                                         <div class="mt-2 text-danger text-sm">
                                             @foreach ($emailErrors as $error)
                                                 <p>{{ $error }}</p>
@@ -29,7 +29,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password">
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" id="userlogindeletepassword" name="password">
+                                        <i class="toggle-password mai-eye-off-outline"
+                                            data-target="userlogindeletepassword"></i>
+                                    </div>
                                     @php
                                         $passwordErrors = $errors->get('password');
                                     @endphp
@@ -46,6 +50,7 @@
                                     <label class="custom-control-label" for="exampleCheck1">Remember Me</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Sign In</button>
+                                <!-- JavaScript to open the modal -->
                             </form>
                             <div class="pt-4">
                                 <p>Don't have an account? <a href="#" id="openRegisterModal">Sign Up</a>. Or
@@ -59,3 +64,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+    @php
+        $emailErrors = $errors->get('email');
+        $passwordErrors = $errors->get('password');
+    @endphp
+
+    if (@json($emailErrors) || @json($passwordErrors)) {
+        $("#loginModal").modal("show");
+    }
+});
+</script>
