@@ -15,7 +15,7 @@ class AuthenticatedSessionController extends Controller
     public function create(Request $request): View
     {
         session()->put('url.intended', url()->previous());
-        return view('frontend.pages.login');
+        return view('auth.login');
     }
 
     public function store(LoginRequest $request): RedirectResponse

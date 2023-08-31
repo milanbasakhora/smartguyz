@@ -90,7 +90,6 @@ class FrontendController extends BaseController
         $member->message = $request->message;
         $member->phone = $request->phone;
         $member->email = $request->email;
-        uploadImage($request,$member,'image');
         $member->save();
         toast('Request sent successfully','success');
         return redirect()->back();

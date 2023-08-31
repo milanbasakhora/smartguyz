@@ -20,16 +20,16 @@
     <section class="vh-100" style="background-color: ">
         <div class="container px-5 pb-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 py-5">
               <div class="text-center pb-2">
                 <a class="navbar-brand" href="/"><span><img src="/frontend/assets/img/logo.png" class="logo"
                     alt=""></span><span class="text-primary">Smart</span>&nbsp;<span style="color: black">Guyz</span></a>
               </div>
               <div class="card shadow-lg shadow-2-strong" style="border-radius: 1rem;">
-                <div class="card-body p-5 text-center">
+                <div class="card-body p-5">
                     <div class="card-sign mb-3">
                         <div class="wrap">
-                            <h1 class="text-primary">Sign In</h1>
+                            <h1 class="text-primary text-center">Sign In</h1>
                             <form class="mt-4" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <p>Don't have an account? <a hhref="{{ route('register') }}">Sign Up</a>. Or
+                    <p>Don't have an account? <a href="{{ route('register') }}">Sign Up</a>. Or
                         <a href="{{ route('password.request') }}">Forgot Your Password?</a>
                     </p>
                 </div>
