@@ -5,38 +5,42 @@
         </div>
         <div class="col-md-4 col-sm-4">
             <div class="d-flex justify-content-end align-items-center">
-            @if (Route::has('login'))
-                @auth
-                <div class="comment-profile-dropdown">
-                    <button class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="profile-icon rounded-circle" id="random-bg-color">
-                            {{ substr(Auth::user()->name, 0, 1) }}
+                @if (Route::has('login'))
+                    @auth
+                        <div class="comment-profile-dropdown">
+                            <button class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="profile-icon rounded-circle" id="random-bg-color">
+                                    {{ substr(Auth::user()->name, 0, 1) }}
+                                </div>
+                            </button>
+                            <div class="dropdown-menu" style="width: 150px;">
+                                <div class="username">
+                                    <span class="font-weight-bold">{{ Auth::user()->name }}</span>
+                                </div>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" href="{{ route('profile.edit') }}"><span
+                                        class="">Edit Profile</span></a>
+                                <a class="dropdown-item" href="{{ route('password.request') }}"><span
+                                        class="">Forgot Password</span></a>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item logout" href="#"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="">{{ __('Logout') }}</span>
+                                    </a>
+                                </form>
+                            </div>
                         </div>
-                    </button>
-                    <div class="dropdown-menu" style="width: 150px;">
-                        <div class="username">
-                            <span class="font-weight-bold">{{ Auth::user()->name }}</span>
-                        </div>
-                        <hr class="dropdown-divider">
-                        <a class="dropdown-item" href="{{ route('profile.edit') }}"><span
-                                class="">Profile</span></a>
-                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="dropdown-item logout" href="#"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <span class="">{{ __('Logout') }}</span>
-                            </a>
-                        </form>
-                    </div>
-                </div>
-                @else
-                    <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Log In</a>
-                @endauth
-            @endif
+                    @else
+                        <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Log In</a>
+                    @endauth
+                @endif
             </div>
         </div>
     </div>
-    @if (auth()->check()) <!-- Check if user is authenticated -->
+    @if (auth()->check())
+        <!-- Check if user is authenticated -->
         <form action="/postcomment" method="POST" class="">
             @csrf
             <div class="form-group">

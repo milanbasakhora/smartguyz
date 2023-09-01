@@ -100,7 +100,7 @@
                                         {{ substr(Auth::user()->name, 0, 1) }}
                                     </div>
                                 </a>
-                                <div class="dropdown-menu" style="width: 150px;">
+                                <div class="dropdown-menu" style="width: 170px;">
                                     <li class="nav-item">
                                         <div class="username">
                                             <span class="font-weight-bold" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">{{ Auth::user()->name }}</span>
@@ -112,6 +112,10 @@
                                     <li class="nav-item py-1">
                                         <a class="nav-link edit mai-person-outline" href="/user-profile"><span
                                                 class="pr-2"></span>Edit Profile</a>
+                                    </li>
+                                    <li class="nav-item py-1">
+                                        <a class="nav-link edit mai-key-outline" href="/forgot-password"><span
+                                                class="pr-2"></span>Forgot Password</a>
                                     </li>
                                     <li class="nav-item py-1">
                                         <form id="logout-form" method="POST" action="{{ route('logout') }}">
