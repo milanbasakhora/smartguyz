@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\MemberCategoryController;
 use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\admin\NoticeController;
+use App\Http\Controllers\admin\ParagraphController;
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\TermsController;
 use App\Http\Controllers\Admin\WelcomeMessageController;
@@ -96,6 +97,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/editorial', EditorialController::class)->names(['editorial']);
     Route::resource('/admin/banner', BannerController::class)->names(['banner']);
     Route::resource('/admin/map', MapController::class)->names(['map']);
+    Route::resource('/admin/paragraph', ParagraphController::class)->names(['paragraph']);
     Route::resource('/admin/comment', CommentController::class)->names(['comment']);
 });
 

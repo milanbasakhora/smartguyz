@@ -15,6 +15,7 @@ use App\Models\Jumbotron;
 use App\Models\Map;
 use App\Models\Member;
 use App\Models\Notice;
+use App\Models\Paragraph;
 use App\Models\Privacy;
 use App\Models\Term;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class BaseController extends Controller
         $privacy = Privacy::first();
         $banners = Banner::all();
         $map = Map::first();
+        $paragraph = Paragraph::first();
         $galleries = Gallery::orderBy('created_at', 'desc')->paginate(8);
         $notices = Notice::orderBy('created_at', 'desc')->paginate(8);
         $comments = Comment::all();
@@ -50,6 +52,7 @@ class BaseController extends Controller
             'privacy' => $privacy,
             'banners' => $banners,
             'map' => $map,
+            'paragraph' => $paragraph,
             'galleries' => $galleries,
             'notices' => $notices,
             'comments' => $comments,

@@ -41,6 +41,7 @@
                 <li><a class="nav-link" href="{{ route('terms_and_conditions.index') }}"><i class="fa-solid fa-file"></i><span>Terms & Conditions</span> </a></li>
                 <li><a class="nav-link" href="{{ route('privacy.index') }}"><i class="fa-solid fa-lock"></i><span>Privacy</span> </a></li>
                 <li><a class="nav-link" href="{{ route('map.index') }}"><i class="fa-brands fa-canadian-maple-leaf"></i><span>Maps</span> </a></li>
+                <li><a class="nav-link" href="{{ route('paragraph.index') }}"><i class="fa-solid fa-note-sticky"></i><span>Paragraph</span> </a></li>
             </ul>
         </aside>
     </div>
