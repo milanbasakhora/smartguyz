@@ -17,11 +17,11 @@
                                 href="/blog/{{ $activity->slug }}">{{ $activity->title }}</a>
                         </h5>
                         <div class="meta">
-                            <a href="#"><span
+                            <a href="/blog/{{ $activity->slug }}"><span
                                     class="mai-calendar"></span>{{ $activity->created_at->format('F j, Y') }}</a>
-                            <a href="#"><span class="mai-person"></span>
+                            <a href="/blog/{{ $activity->slug }}"><span class="mai-person"></span>
                                 {{ $company->name }}</a>
-                            <a href="#"><span class="mai-chatbubbles"></span> 19</a>
+                            <a href="/blog/{{ $activity->slug }}"><span class="mai-chatbubbles"></span>{{ $activity->comments->count() }}</a>
                         </div>
                     </div>
                 </div>
