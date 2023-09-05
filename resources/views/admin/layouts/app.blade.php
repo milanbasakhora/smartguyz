@@ -24,6 +24,12 @@
     {{-- Search Function and Pagination sabai --}}
     <link rel="stylesheet" href="/assets/bundles/datatables/datatables.min.css">
     <link rel="stylesheet" href="/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+    <style>
+        a{
+            text-decoration: none !important;
+        }
+    </style>
 </head>
 
 <body>

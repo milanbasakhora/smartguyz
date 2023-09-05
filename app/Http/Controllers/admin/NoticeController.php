@@ -32,6 +32,7 @@ class NoticeController extends Controller
     {
         $notice= new Notice();
         $notice->title = $request->title;
+        $notice->expire_date = $request->expire_date;
         uploadImage($request,$notice,'image');
         $notice->save();
         toast('Record saved successfully','success');
@@ -62,6 +63,7 @@ class NoticeController extends Controller
     {
         $notice = Notice::find($id);
         $notice->title = $notice->title;
+        $notice->expire_date = $request->expire_date;
         uploadImage($request,$notice,'image');
         $notice->update();
         toast('Record updated successfully','success');

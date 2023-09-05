@@ -13,7 +13,13 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="title">Update Title</label>
-                            <input type="text" id="title" class="form-control-file" value="" name="title">
+                            <input type="text" id="title" class="form-control-file" value="{{ $notice->title }}" name="title">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="expire_date">Update Expire Date <span class="text-danger">*</span></label>
+                            <input type="date" id="expire_date" class="form-control-file" value="{{ $notice->expire_date }}" name="expire_date">
                         </div>
                     </div>
                     <div class="col-md-12">

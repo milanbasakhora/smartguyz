@@ -14,6 +14,14 @@
                                 <label for="title">Title <span class="text-danger">*</span></label>
                                 <input type="text" id="title" class="form-control-file" name="title">
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="expire_date">Expire Date <span class="text-danger">*</span></label>
+                                <input type="date" id="expire_date" class="form-control-file" name="expire_date">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="image">Select Image <span class="text-danger">*</span></label>
                                 <input type="file" id="image" class="form-control-file" name="image">

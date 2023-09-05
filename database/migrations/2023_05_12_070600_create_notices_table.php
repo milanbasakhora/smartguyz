@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->date('expire_date');
             $table->string('image');
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CarouselController;
 use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ContactController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\EditorialController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\JumbotronController;
@@ -72,9 +73,8 @@ Route::get('dashboard', function () {
 require __DIR__ . '/auth.php';
 
 //Admin
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [DashboardController::class,'dashboard']
+)->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');

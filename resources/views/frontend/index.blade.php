@@ -9,35 +9,57 @@
 <body>
     @include('sweetalert::alert')
 
-    <!-- Back to top button -->
-    <div class="back-to-top"></div>
+    <div class="modal bd-example-modal-lg" id="popModel" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                @php
+                    $count = 0;
+                @endphp
+                @foreach ($notices as $notice)
+                    @if ($notice->expire_date > now()->format('Y-m-d'))
+                        @if ($count == 0)
+                            <img src="{{ asset($notice->image) }}" alt="">
+                            @php
+                                $count = 1;
+                            @endphp
+                        @break
+                    @endif
+                @endif
+            @endforeach
 
-    <!-- Navbar -->
-    @include('frontend.layouts.navbar')
+        </div>
+    </div>
+</div>
 
-    <!-- Jumbotron -->
-    @include('frontend.layouts.jumbotron')
+<!-- Back to top button -->
+<div class="back-to-top"></div>
 
-    <!-- Welcome Message -->
-    @include('frontend.layouts.welcomemessage')
+<!-- Navbar -->
+@include('frontend.layouts.navbar')
 
-    <!-- Board Members -->
-    @include('frontend.layouts.boardmembers')
+<!-- Jumbotron -->
+@include('frontend.layouts.jumbotron')
 
-    <!-- Activities -->
-    @include('frontend.layouts.activities')
+<!-- Welcome Message -->
+@include('frontend.layouts.welcomemessage')
 
-    <!-- Members -->
-    @include('frontend.layouts.members')
+<!-- Board Members -->
+@include('frontend.layouts.boardmembers')
 
-    <!-- Member Request -->
-    @include('frontend.layouts.memberrequest')
+<!-- Activities -->
+@include('frontend.layouts.activities')
 
-    <!-- Footer -->
-    @include('frontend.layouts.footer')
+<!-- Members -->
+@include('frontend.layouts.members')
 
-    {{-- Javascript --}}
-    @include('frontend.layouts.js')
+<!-- Member Request -->
+@include('frontend.layouts.memberrequest')
+
+<!-- Footer -->
+@include('frontend.layouts.footer')
+
+{{-- Javascript --}}
+@include('frontend.layouts.js')
 
 </body>
 

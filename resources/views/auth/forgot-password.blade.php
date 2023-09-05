@@ -28,7 +28,7 @@
               <div class="card shadow-lg shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
                     <h5 class="text-grey pb-2">Forgot Your Password?</h5>
-                    <p class="text-grey">Let us know your email address and we will email you a password reset link
+                    <p class="text-grey">No problem! Just let us know your email address and we will email you a password reset link
                         that will allow you to choose a new one.</p>
 
                     <form method="POST" action="{{ route('password.email') }}">

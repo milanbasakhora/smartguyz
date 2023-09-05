@@ -5938,14 +5938,14 @@ a.close.disabled {
 
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 1050;
   display: none;
   width: 100%;
   height: 100%;
   overflow: hidden;
   outline: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .modal-dialog {
@@ -6039,13 +6039,15 @@ a.close.disabled {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 100%;
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0;
+  margin: 20% auto;
+  padding: 10px;
+  width: 100%;
 }
 
 .modal-backdrop {

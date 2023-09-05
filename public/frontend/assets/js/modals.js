@@ -26,4 +26,24 @@ $(document).ready(function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('popModel');
+
+    // Show the modal with a fade-in effect
+    modal.style.display = 'block';
+    setTimeout(function() {
+        modal.style.opacity = '1';
+    }, 10);
+
+    // Close the modal with a fade-out effect when clicking outside of it
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.opacity = '0';
+            setTimeout(function() {
+                modal.style.display = 'none';
+            }, 500); // Wait for the transition to complete (0.5 seconds)
+        }
+    });
+});
+
 

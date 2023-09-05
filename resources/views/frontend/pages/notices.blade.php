@@ -41,11 +41,12 @@
                 <div class="col-lg-12">
                     <div class="row">
                         @foreach ($notices as $notice)
+                        {{-- @if ($notice->expire_date > now()->format('Y-m-d')) --}}
                             <div class="col-sm-3 py-3">
                                 <div class="card-gallery">
                                     <div class="header">
                                         <a href="{{ asset($notice->image) }}" data-lightbox="image-gallery"
-                                            class="post-thumb">
+                                           class="post-thumb">
                                             <div class="image-container">
                                                 <img src="{{ asset($notice->image) }}" alt="">
                                                 <div class="title-overlay">{{ $notice->title }}</div>
@@ -54,6 +55,7 @@
                                     </div>
                                 </div>
                             </div>
+                        {{-- @endif --}}
                         @endforeach
                     </div> <!-- .row -->
                     <!-- Nevigation -->
