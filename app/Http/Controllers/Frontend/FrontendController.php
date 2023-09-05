@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Member;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +17,8 @@ class FrontendController extends BaseController
 {
     public function home()
     {
-        return view('frontend.index');
+        $checknotice = Notice::where('expire_date', '>', now()->format('Y-m-d'))->get();
+        return view('frontend.index',compact('checknotice'));
     }
 
     public function userProfile()
