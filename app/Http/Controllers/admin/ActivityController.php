@@ -37,6 +37,8 @@ class ActivityController extends Controller
         $activity->title = $request->title;
         $activity->slug = Str::slug($request->title);
         $activity->description = $request->description;
+        $activity->meta_word = $request->meta_word;
+        $activity->meta_description = $request->meta_description;
         $activity->save();
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
@@ -80,6 +82,8 @@ class ActivityController extends Controller
         $activity->title = $request->title;
         $activity->slug = Str::slug($request->title);
         $activity->description = $request->description;
+        $activity->meta_word = $request->meta_word;
+        $activity->meta_description = $request->meta_description;
         $activity->update();
         $deleteActivityImage = ActivityImage::where('activity_id', $activity->id);
         if ($request->hasFile('images')) {

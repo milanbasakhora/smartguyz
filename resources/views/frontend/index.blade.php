@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    {{-- Meta tags and title --}}
+    @include('frontend.layouts.metaXtitle')
+
     {{-- CSS --}}
     @include('frontend.layouts.css')
 </head>

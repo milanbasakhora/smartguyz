@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    {{-- Meta tags and title --}}
+    @include('frontend.layouts.metaXtitle')
     {{-- css --}}
     @include('frontend.layouts.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">

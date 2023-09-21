@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    {{-- Meta tags and title --}}
+    @include('frontend.layouts.metaXtitle')
     {{-- css --}}
     @include('frontend.layouts.css')
     {{-- leafletjs.com leaflet css --}}

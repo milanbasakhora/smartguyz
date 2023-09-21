@@ -29,6 +29,18 @@
                                     placeholder="">
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="meta_word">Meta Word</label>
+                                <textarea id="meta_word" class="form-control" name="meta_word" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="meta_description">Meta Description</label>
+                                <textarea id="meta_description" class="form-control" name="meta_description" rows="5"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-success">Save Record</button>
                 </form>
