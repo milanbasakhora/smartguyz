@@ -43,6 +43,7 @@
                             </button>
                         </div>
                     </form>
+                    <p class="pt-3"><a href="{{ route('login') }}">Login</a> | <a href="{{ route('register') }}">Register</a></p>
                 </div>
               </div>
             </div>
