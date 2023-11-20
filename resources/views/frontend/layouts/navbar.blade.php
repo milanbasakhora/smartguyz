@@ -14,16 +14,16 @@
                 <div class="col-sm-4 text-right text-sm">
                     <div class="social-mini-button">
                         @if ($company->facebook ?? '')
-                            <a href="{{ $company->facebook ?? '' }}"><span class="mai-logo-facebook-f"></span></a>
+                            <a href="{{ $company->facebook ?? '' }}" target="_blank"><span class="mai-logo-facebook-f"></span></a>
                         @endif
                         @if ($company->twitter ?? '')
-                            <a href="{{ $company->twitter ?? ''}}"><span class="mai-logo-twitter"></span></a>
+                            <a href="{{ $company->twitter ?? ''}}" target="_blank"><span class="mai-logo-twitter"></span></a>
                         @endif
                         @if ($company->youtube ?? '')
-                            <a href="{{ $company->youtube ?? '' }}"><span class="mai-logo-youtube"></span></a>
+                            <a href="{{ $company->youtube ?? '' }}" target="_blank"><span class="mai-logo-youtube"></span></a>
                         @endif
                         @if ($company->instagram ?? '')
-                            <a href="{{ $company->instagram ?? '' }}"><span class="mai-logo-instagram"></span></a>
+                            <a href="{{ $company->instagram ?? '' }}" target="_blank"><span class="mai-logo-instagram"></span></a>
                         @endif
                     </div>
                 </div>

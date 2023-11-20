@@ -18,11 +18,10 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
-                <h5>Our partner</h5>
+                <h5>Our partners</h5>
                 <ul class="footer-menu">
-                    <li><a href="https://codeit.com.np">CODE IT</a></li>
-                    <li><a href="https://milanbasakhora.com.np">Milan Basakhora</a></li>
-                    <li><a href="https://simanaonlineservices.com.np">Simana Online Services</a></li>
+                    <li><a href="https://codeit.com.np" target="_blank">CODE IT</a></li>
+                    <li><a href="https://raimilan.com.np" target="_blank">Milan Basakhora</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
@@ -36,16 +35,16 @@
                 <h5 class="mt-5">Social Media</h5>
                 <div class="footer-sosmed mt-3">
                     @if ($company->facebook)
-                    <a href="{{ $company->facebook }}"><span class="mai-logo-facebook-f"></span></a>
+                    <a href="{{ $company->facebook }}" target="_blank"><span class="mai-logo-facebook-f"></span></a>
                     @endif
                     @if ($company->twitter)
-                    <a href="{{ $company->twitter }}"><span class="mai-logo-twitter"></span></a>
+                    <a href="{{ $company->twitter }}" target="_blank"><span class="mai-logo-twitter"></span></a>
                     @endif
                     @if ($company->youtube)
-                    <a href="{{ $company->youtube }}"><span class="mai-logo-youtube"></span></a>
+                    <a href="{{ $company->youtube }}" target="_blank"><span class="mai-logo-youtube"></span></a>
                     @endif
                     @if ($company->instagram)
-                    <a href="{{ $company->instagram }}"><span class="mai-logo-instagram"></span></a>
+                    <a href="{{ $company->instagram }}" target="_blank"><span class="mai-logo-instagram"></span></a>
                     @endif
                 </div>
             </div>
